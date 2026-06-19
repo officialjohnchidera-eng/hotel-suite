@@ -64,7 +64,7 @@ const Navbar = () => {
       name: 'Services',
       path: '/services',
       dropdown: [
-        { name: 'Restaurant', path: '/services#restaurant' },
+        { name: 'Restaurant', path: '/restaurant' },
         { name: 'Conference Hall', path: '/services#conference' },
       ],
     },

@@ -85,10 +85,10 @@ const Footer = () => {
           }
         }
 
-        @media (max-width: 540px) {
+        @media (max-width: 640px) {
           .jul-footer-grid {
             grid-template-columns: 1fr;
-            gap: 36px;
+            gap: 30px;
             text-align: center;
           }
           .jul-footer-col {
@@ -96,14 +96,48 @@ const Footer = () => {
           }
           .jul-footer-col .contact-li {
             justify-content: center;
-            text-align: left;
+            text-align: center;
+          }
+          .jul-footer-col .contact-li span {
+            text-align: center;
           }
           .jul-footer-bottom {
             flex-direction: column;
             text-align: center;
+            gap: 12px;
           }
           .jul-footer-social {
             justify-content: center;
+            gap: 12px;
+          }
+          .jul-footer-social a {
+            font-size: 13px !important;
+          }
+          .jul-footer-col .brand-description {
+            text-align: center;
+            max-width: 100% !important;
+          }
+          .jul-footer-col ul {
+            align-items: center;
+          }
+          .jul-footer-col ul li {
+            text-align: center;
+          }
+          .jul-footer-col .contact-list {
+            align-items: center;
+            max-width: 100% !important;
+          }
+        }
+
+        @media (max-width: 400px) {
+          .jul-footer-social {
+            gap: 8px;
+          }
+          .jul-footer-social a {
+            font-size: 12px !important;
+          }
+          .jul-footer-bottom p {
+            font-size: 13px !important;
           }
         }
       `}</style>
@@ -121,20 +155,22 @@ const Footer = () => {
             <h3
               style={{
                 color: '#ffffff',
-                fontSize: '24px',
+                fontSize: 'clamp(20px, 2.5vw, 24px)',
                 fontWeight: '700',
                 textTransform: 'uppercase',
                 letterSpacing: '0.08em',
                 marginBottom: '18px',
                 fontFamily: 'Playfair Display, Georgia, serif',
+                textAlign: 'center',
               }}
             >
               Julicis Hotel & Suites
             </h3>
             <p
+              className="brand-description"
               style={{
                 color: '#9ca3af',
-                fontSize: '16px',
+                fontSize: 'clamp(15px, 1.5vw, 16px)',
                 lineHeight: 1.8,
                 fontFamily: 'Cormorant Garamond, Times New Roman, serif',
                 maxWidth: '280px',
@@ -146,13 +182,13 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="jul-footer-col">
-            <h4 style={headingStyle}>Quick Links</h4>
-            <ul style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            <h4 style={{...headingStyle, textAlign: 'center'}}>Quick Links</h4>
+            <ul style={{ display: 'flex', flexDirection: 'column', gap: '12px', width: '100%' }}>
               {quickLinks.map(link => (
                 <li key={link.name}>
                   <Link
                     to={link.path}
-                    style={linkStyle}
+                    style={{...linkStyle, display: 'inline-block'}}
                     onMouseEnter={e => e.currentTarget.style.color = '#eab308'}
                     onMouseLeave={e => e.currentTarget.style.color = '#9ca3af'}
                   >
@@ -165,8 +201,8 @@ const Footer = () => {
 
           {/* Guest Services */}
           <div className="jul-footer-col">
-            <h4 style={headingStyle}>Guest Services</h4>
-            <ul style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            <h4 style={{...headingStyle, textAlign: 'center'}}>Guest Services</h4>
+            <ul style={{ display: 'flex', flexDirection: 'column', gap: '12px', width: '100%' }}>
               {guestServices.map(service => (
                 <li key={service}>
                   <span style={linkStyle}>{service}</span>
@@ -177,20 +213,45 @@ const Footer = () => {
 
           {/* Contact Us */}
           <div className="jul-footer-col">
-            <h4 style={headingStyle}>Contact Us</h4>
-            <ul style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '100%', maxWidth: '260px' }}>
-              <li className="contact-li" style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+            <h4 style={{...headingStyle, textAlign: 'center'}}>Contact Us</h4>
+            <ul className="contact-list" style={{ 
+              display: 'flex', 
+              flexDirection: 'column', 
+              gap: '16px', 
+              width: '100%', 
+              maxWidth: '260px',
+              alignItems: 'flex-start'
+            }}>
+              <li className="contact-li" style={{ 
+                display: 'flex', 
+                alignItems: 'flex-start', 
+                gap: '10px',
+                width: '100%',
+                justifyContent: 'flex-start'
+              }}>
                 <Phone size={18} color="#eab308" style={{ marginTop: '2px', flexShrink: 0 }} />
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                   <span style={linkStyle}>+234 906 953 0033</span>
                   <span style={linkStyle}>+234 913 383 2888</span>
                 </div>
               </li>
-              <li className="contact-li" style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+              <li className="contact-li" style={{ 
+                display: 'flex', 
+                alignItems: 'flex-start', 
+                gap: '10px',
+                width: '100%',
+                justifyContent: 'flex-start'
+              }}>
                 <Mail size={18} color="#eab308" style={{ marginTop: '2px', flexShrink: 0 }} />
                 <span style={linkStyle}>info@julicishotelandsuite.com</span>
               </li>
-              <li className="contact-li" style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+              <li className="contact-li" style={{ 
+                display: 'flex', 
+                alignItems: 'flex-start', 
+                gap: '10px',
+                width: '100%',
+                justifyContent: 'flex-start'
+              }}>
                 <MapPin size={18} color="#eab308" style={{ marginTop: '2px', flexShrink: 0 }} />
                 <span style={linkStyle}>
                   No 13 Alhaji Agbabiaka Street, Ago Palace Way Okota Lagos Nigeria
@@ -218,8 +279,9 @@ const Footer = () => {
           <p
             style={{
               color: '#6b7280',
-              fontSize: '15px',
+              fontSize: 'clamp(13px, 1.2vw, 15px)',
               fontFamily: 'Cormorant Garamond, Times New Roman, serif',
+              textAlign: 'center',
             }}
           >
             Copyright {new Date().getFullYear()} Julicis Hotel | Developed by BuxOne Ltd
@@ -234,10 +296,11 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 style={{
                   color: '#9ca3af',
-                  fontSize: '15px',
+                  fontSize: 'clamp(13px, 1.2vw, 15px)',
                   textDecoration: 'none',
                   transition: 'color 0.3s ease',
                   fontFamily: 'Cormorant Garamond, Times New Roman, serif',
+                  padding: '4px 0',
                 }}
                 onMouseEnter={e => e.currentTarget.style.color = '#eab308'}
                 onMouseLeave={e => e.currentTarget.style.color = '#9ca3af'}
