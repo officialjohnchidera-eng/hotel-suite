@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Menu, X, ChevronDown } from 'lucide-react'
 
 const Navbar = () => {
@@ -8,13 +8,14 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false)
   const timeoutRef = useRef(null)
   const location = useLocation()
+  const navigate = useNavigate()
 
   const isHome = location.pathname === '/'
   const showSolidBg = !isHome || scrolled
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40)
-    handleScroll() // catch the case where you land mid-scroll or switch routes already scrolled
+    handleScroll()
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [location.pathname])
@@ -28,6 +29,38 @@ const Navbar = () => {
     timeoutRef.current = setTimeout(() => {
       setActiveDropdown(null)
     }, 300)
+  }
+
+  // Handle mobile navigation with smooth scroll
+  const handleMobileNavClick = (path, linkName) => {
+    setIsOpen(false)
+    setActiveDropdown(null)
+
+    // Check if it's a hash link (starts with /#)
+    if (path.includes('#')) {
+      const hash = path.split('#')[1]
+      
+      // If we're on the home page, scroll to the section
+      if (location.pathname === '/') {
+        const element = document.getElementById(hash)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' })
+        }
+      } else {
+        // Navigate to home page with hash
+        navigate(`/#${hash}`)
+        // After navigation, scroll to the section
+        setTimeout(() => {
+          const element = document.getElementById(hash)
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' })
+          }
+        }, 300)
+      }
+    } else {
+      // Regular navigation
+      navigate(path)
+    }
   }
 
   const navLinks = [
@@ -52,20 +85,20 @@ const Navbar = () => {
     },
     {
       name: 'Recreation',
-      path: '/services#recreation',
+      path: '/#recreation',
       dropdown: [
-        { name: 'Gym', path: '/services#gym' },
-        { name: 'Tennis Court', path: '/services#tennis' },
-        { name: 'Swimming Pool', path: '/services#pool' },
-        { name: 'Fitness Center', path: '/services#fitness' },
+        { name: 'Gym', path: '/#gym' },
+        { name: 'Tennis Court', path: '/#tennis' },
+        { name: 'Swimming Pool', path: '/#pool' },
+        { name: 'Fitness Center', path: '/#fitness' },
       ],
     },
     {
       name: 'Services',
-      path: '/services',
+      path: '/#services-section',
       dropdown: [
         { name: 'Restaurant', path: '/restaurant' },
-        { name: 'Conference Hall', path: '/services#conference' },
+        { name: 'Conference Hall', path: '/#conference' },
       ],
     },
   ]
@@ -101,46 +134,52 @@ const Navbar = () => {
         >
           <div style={{ overflow: 'hidden', minHeight: 0 }}>
             <div style={{ padding: '8px 0' }}>
-              {items.map((item, index) => (
-                <Link
-                  key={item.name}
-                  to={item.path}
-                  onClick={() => setActiveDropdown(null)}
-                  style={{
-                    display: 'block',
-                    padding: '14px 24px',
-                    color: '#1a1a1a',
-                    fontSize: '11px',
-                    fontWeight: '500',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.1em',
-                    borderBottom: index !== items.length - 1 ? '1px solid #f3f4f6' : 'none',
-                    transform: isActive ? 'translateY(0)' : 'translateY(6px)',
-                    opacity: isActive ? 1 : 0,
-                    fontFamily: 'Cormorant Garamond, Georgia, serif',
-                    transition: `
-                      transform 0.5s cubic-bezier(0.22, 1, 0.36, 1) ${index * 0.04}s,
-                      opacity 0.4s ease ${index * 0.04}s,
-                      padding-left 0.3s ease,
-                      color 0.2s ease,
-                      background-color 0.2s ease
-                    `,
-                    willChange: 'transform, opacity',
-                  }}
-                  onMouseEnter={e => {
-                    e.currentTarget.style.paddingLeft = '32px'
-                    e.currentTarget.style.color = '#b8860b'
-                    e.currentTarget.style.backgroundColor = '#fefce8'
-                  }}
-                  onMouseLeave={e => {
-                    e.currentTarget.style.paddingLeft = '24px'
-                    e.currentTarget.style.color = '#1a1a1a'
-                    e.currentTarget.style.backgroundColor = 'transparent'
-                  }}
-                >
-                  {item.name}
-                </Link>
-              ))}
+              {items.map((item, index) => {
+                // Check if it's a hash link
+                const isHashLink = item.path.includes('#')
+                const linkTo = isHashLink ? item.path : item.path
+
+                return (
+                  <Link
+                    key={item.name}
+                    to={linkTo}
+                    onClick={() => setActiveDropdown(null)}
+                    style={{
+                      display: 'block',
+                      padding: '14px 24px',
+                      color: '#1a1a1a',
+                      fontSize: '11px',
+                      fontWeight: '500',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.1em',
+                      borderBottom: index !== items.length - 1 ? '1px solid #f3f4f6' : 'none',
+                      transform: isActive ? 'translateY(0)' : 'translateY(6px)',
+                      opacity: isActive ? 1 : 0,
+                      fontFamily: 'Cormorant Garamond, Georgia, serif',
+                      transition: `
+                        transform 0.5s cubic-bezier(0.22, 1, 0.36, 1) ${index * 0.04}s,
+                        opacity 0.4s ease ${index * 0.04}s,
+                        padding-left 0.3s ease,
+                        color 0.2s ease,
+                        background-color 0.2s ease
+                      `,
+                      willChange: 'transform, opacity',
+                    }}
+                    onMouseEnter={e => {
+                      e.currentTarget.style.paddingLeft = '32px'
+                      e.currentTarget.style.color = '#b8860b'
+                      e.currentTarget.style.backgroundColor = '#fefce8'
+                    }}
+                    onMouseLeave={e => {
+                      e.currentTarget.style.paddingLeft = '24px'
+                      e.currentTarget.style.color = '#1a1a1a'
+                      e.currentTarget.style.backgroundColor = 'transparent'
+                    }}
+                  >
+                    {item.name}
+                  </Link>
+                )
+              })}
             </div>
           </div>
         </div>
@@ -207,8 +246,9 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* Brand Center Identity */}
-        <div 
+        {/* Brand Center Identity - Clickable to Home */}
+        <Link 
+          to="/"
           style={{
             color: '#ffffff',
             fontSize: '16px',
@@ -217,10 +257,13 @@ const Navbar = () => {
             letterSpacing: '0.2em',
             textAlign: 'center',
             fontFamily: 'Playfair Display, Georgia, serif',
+            textDecoration: 'none',
+            transition: 'color 0.3s ease',
           }}
+          className="hover:text-yellow-500"
         >
           Julicis Hotel & Suites
-        </div>
+        </Link>
 
         {/* Right Side Links */}
         <ul className="flex items-center justify-end gap-8 w-1/3">
@@ -301,7 +344,8 @@ const Navbar = () => {
 
       {/* Mobile View */}
       <div className="md:hidden flex items-center justify-between px-6 w-full">
-        <div 
+        <Link 
+          to="/"
           style={{
             color: '#ffffff',
             fontSize: '14px',
@@ -309,10 +353,11 @@ const Navbar = () => {
             textTransform: 'uppercase',
             letterSpacing: '0.15em',
             fontFamily: 'Playfair Display, Georgia, serif',
+            textDecoration: 'none',
           }}
         >
           Julicis Hotel
-        </div>
+        </Link>
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="text-white focus:outline-none"
@@ -388,10 +433,7 @@ const Navbar = () => {
                       <Link
                         key={item.name}
                         to={item.path}
-                        onClick={() => {
-                          setIsOpen(false)
-                          setActiveDropdown(null)
-                        }}
+                        onClick={() => handleMobileNavClick(item.path, link.name)}
                         style={{
                           display: 'block',
                           padding: '12px 0 12px 16px',

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Mail } from 'lucide-react';
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { Camera } from 'lucide-react';
@@ -410,6 +411,8 @@ const Home = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [videoActiveIndex, setVideoActiveIndex] = useState(0);
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -458,10 +461,19 @@ const Home = () => {
     );
   };
 
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    if (!newsletterEmail) return;
+    setSubscribed(true);
+    setNewsletterEmail("");
+    setTimeout(() => setSubscribed(false), 4000);
+  };
+
   return (
     <div>
       {/* Hero Section */}
       <div
+        id="home"
         style={{
           position: "relative",
           width: "100%",
@@ -642,7 +654,7 @@ const Home = () => {
       </div>
 
       {/* Booking Widget Section */}
-      <div style={{ padding: "56px 24px 32px" }}>
+      <div id="booking" style={{ padding: "56px 24px 32px" }}>
         <style>{`
           .jul-booking-grid {
             display: grid;
@@ -770,7 +782,7 @@ const Home = () => {
       </div>
 
       {/* About Section */}
-      <div style={{ padding: "100px 24px", backgroundColor: "#ffffff" }}>
+      <div id="about" style={{ padding: "100px 24px", backgroundColor: "#ffffff" }}>
         <div
           style={{
             maxWidth: "1200px",
@@ -946,7 +958,7 @@ const Home = () => {
       </div>
 
       {/* Facilities Section */}
-      <div style={{ padding: "100px 24px", backgroundColor: "#f9f9f7" }}>
+      <div id="facilities" style={{ padding: "100px 24px", backgroundColor: "#f9f9f7" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "60px" }}>
             <div
@@ -1102,8 +1114,7 @@ const Home = () => {
       </div>
 
       {/* Video-Style Featured Section - FULL WIDTH */}
-      <div
-        style={{
+      <div id="recreation" style={{
           position: 'relative',
           width: '100%',
           height: '60vh',
@@ -1279,7 +1290,7 @@ const Home = () => {
       </div>
 
       {/* Services Section */}
-      <div style={{ padding: "100px 24px", backgroundColor: "#ffffff" }}>
+      <div id="services-section" style={{ padding: "100px 24px", backgroundColor: "#ffffff" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "60px" }}>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "14px", marginBottom: "12px" }}>
@@ -1414,7 +1425,7 @@ const Home = () => {
       </div>
 
       {/* Rooms Section - Using RoomCard Component */}
-      <div style={{ padding: "100px 24px", backgroundColor: "#f8f6f3" }}>
+      <div id="rooms" style={{ padding: "100px 24px", backgroundColor: "#f8f6f3" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "60px" }}>
             <div
@@ -1493,7 +1504,7 @@ const Home = () => {
       </div>
 
       {/* Social Media Grid */}
-      <div style={{ padding: "100px 24px", backgroundColor: "#f9f9f7" }}>
+      <div id="social" style={{ padding: "100px 24px", backgroundColor: "#f9f9f7" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "50px" }}>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "14px", marginBottom: "12px" }}>
@@ -1601,7 +1612,7 @@ const Home = () => {
       </div>
 
       {/* Testimonial Section - Carousel Style */}
-      <div style={{ padding: "100px 24px", backgroundColor: "#ffffff" }}>
+      <div id="testimonials" style={{ padding: "100px 24px", backgroundColor: "#ffffff" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "60px" }}>
             <div
@@ -1838,6 +1849,121 @@ const Home = () => {
               ))}
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Newsletter Section */}
+      <div
+        id="newsletter"
+        style={{
+          position: "relative",
+          padding: "90px 24px",
+          backgroundColor: "#0f0f0f",
+          textAlign: "center",
+          overflow: "hidden",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "radial-gradient(circle at 50% 0%, rgba(234,179,8,0.08) 0%, transparent 60%)",
+          }}
+        />
+
+        <div style={{ position: "relative", maxWidth: "560px", margin: "0 auto" }}>
+          <Mail size={32} color="#eab308" style={{ marginBottom: "20px" }} />
+
+          <h2
+            style={{
+              color: "#ffffff",
+              fontSize: "clamp(1.6rem, 3vw, 2.2rem)",
+              fontWeight: "600",
+              fontFamily: "Playfair Display, Georgia, serif",
+              marginBottom: "12px",
+            }}
+          >
+            Join Our Newsletter
+          </h2>
+          <p
+            style={{
+              color: "rgba(255,255,255,0.65)",
+              fontSize: "15px",
+              lineHeight: 1.7,
+              marginBottom: "32px",
+              fontFamily: "Cormorant Garamond, Times New Roman, serif",
+            }}
+          >
+            Be the first to know about exclusive offers, seasonal promotions, and updates from Julicis Hotel & Suites.
+          </p>
+
+          {subscribed ? (
+            <div
+              style={{
+                backgroundColor: "rgba(234,179,8,0.1)",
+                border: "1px solid rgba(234,179,8,0.3)",
+                borderRadius: "8px",
+                padding: "16px 24px",
+                color: "#eab308",
+                fontSize: "14px",
+                fontFamily: "Cormorant Garamond, Times New Roman, serif",
+              }}
+            >
+              Thank you for subscribing! Watch your inbox for updates.
+            </div>
+          ) : (
+            <form
+              onSubmit={handleSubscribe}
+              style={{
+                display: "flex",
+                gap: "0",
+                maxWidth: "440px",
+                margin: "0 auto",
+                border: "1px solid rgba(255,255,255,0.2)",
+                borderRadius: "6px",
+                overflow: "hidden",
+              }}
+            >
+              <input
+                type="email"
+                value={newsletterEmail}
+                onChange={(e) => setNewsletterEmail(e.target.value)}
+                placeholder="Enter your email address"
+                required
+                style={{
+                  flex: 1,
+                  padding: "14px 18px",
+                  fontSize: "14px",
+                  border: "none",
+                  backgroundColor: "transparent",
+                  color: "#ffffff",
+                  outline: "none",
+                  fontFamily: "Cormorant Garamond, Times New Roman, serif",
+                }}
+              />
+              <button
+                type="submit"
+                style={{
+                  backgroundColor: "#eab308",
+                  color: "#000000",
+                  border: "none",
+                  padding: "14px 28px",
+                  fontSize: "13px",
+                  fontWeight: "600",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.1em",
+                  cursor: "pointer",
+                  fontFamily: "Cormorant Garamond, Times New Roman, serif",
+                  transition: "background-color 0.3s ease",
+                  whiteSpace: "nowrap",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#d4a308")}
+                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#eab308")}
+              >
+                Subscribe
+              </button>
+            </form>
+          )}
         </div>
       </div>
     </div>
