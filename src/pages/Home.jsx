@@ -180,6 +180,225 @@ const counterValueStyle = {
   fontFamily: "Cormorant Garamond, Times New Roman, serif",
 };
 
+// RoomCard Component - Handles both desktop hover and mobile click
+const RoomCard = ({ room }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const togglePanel = () => {
+    if (isMobile) {
+      setIsOpen(!isOpen);
+    }
+  };
+
+  return (
+    <div
+      style={{
+        backgroundColor: "#ffffff",
+        borderRadius: "12px",
+        overflow: "hidden",
+        boxShadow: isOpen ? "0 20px 50px rgba(0,0,0,0.15)" : "0 8px 30px rgba(0,0,0,0.08)",
+        transition: "transform 0.4s ease, box-shadow 0.4s ease",
+        border: "1px solid rgba(0,0,0,0.04)",
+        position: "relative",
+        transform: isOpen ? "translateY(-10px)" : "translateY(0)",
+        cursor: isMobile ? "pointer" : "default",
+      }}
+      onMouseEnter={(e) => {
+        if (!isMobile) {
+          e.currentTarget.style.transform = "translateY(-10px)";
+          e.currentTarget.style.boxShadow = "0 20px 50px rgba(0,0,0,0.15)";
+          setIsOpen(true);
+        }
+      }}
+      onMouseLeave={(e) => {
+        if (!isMobile) {
+          e.currentTarget.style.transform = "translateY(0)";
+          e.currentTarget.style.boxShadow = "0 8px 30px rgba(0,0,0,0.08)";
+          setIsOpen(false);
+        }
+      }}
+      onClick={togglePanel}
+    >
+      <div
+        style={{
+          position: "relative",
+          height: "260px",
+          overflow: "hidden",
+        }}
+      >
+        <img
+          src={room.image}
+          alt={room.name}
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            transition: "transform 0.6s ease",
+          }}
+          onMouseEnter={(e) =>
+            (e.currentTarget.style.transform = "scale(1.05)")
+          }
+          onMouseLeave={(e) =>
+            (e.currentTarget.style.transform = "scale(1)")
+          }
+        />
+
+        <div
+          style={{
+            position: "absolute",
+            bottom: "20px",
+            left: "20px",
+            right: "20px",
+            color: "#ffffff",
+            textShadow: "0 2px 10px rgba(0,0,0,0.5)",
+            zIndex: 2,
+          }}
+        >
+          <h3
+            style={{
+              fontSize: "20px",
+              fontWeight: "600",
+              fontFamily: "Playfair Display, Georgia, serif",
+              marginBottom: "4px",
+              letterSpacing: "0.02em",
+            }}
+          >
+            {room.name}
+          </h3>
+          {isMobile && (
+            <div
+              style={{
+                fontSize: "12px",
+                color: "rgba(255,255,255,0.7)",
+                fontFamily: "Cormorant Garamond, Times New Roman, serif",
+              }}
+            >
+              {isOpen ? "Tap to close ▲" : "Tap to view details ▼"}
+            </div>
+          )}
+        </div>
+
+        <div
+          style={{
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            right: 0,
+            height: "60%",
+            background:
+              "linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%)",
+            zIndex: 1,
+          }}
+        />
+      </div>
+
+      <div
+        style={{
+          padding: "20px 24px 24px",
+          backgroundColor: "#ffffff",
+          transform: isOpen ? "translateY(0)" : isMobile ? "translateY(0)" : "translateY(100%)",
+          opacity: isOpen ? "1" : isMobile ? "1" : "0",
+          maxHeight: isOpen ? "300px" : isMobile ? "300px" : "0",
+          overflow: "hidden",
+          transition: isMobile ? "none" : "transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s ease",
+          position: "relative",
+          zIndex: 3,
+          marginTop: "-20px",
+          borderTop: "3px solid #eab308",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginBottom: "12px",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              gap: "16px",
+              color: "#888888",
+              fontSize: "14px",
+              fontFamily:
+                "Cormorant Garamond, Times New Roman, serif",
+            }}
+          >
+            <span
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "6px",
+              }}
+            >
+              <span style={{ fontSize: "16px" }}>🛏</span> {room.bed}
+            </span>
+            <span
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "6px",
+              }}
+            >
+              <span style={{ fontSize: "16px" }}>👤</span>{" "}
+              {room.guests}
+            </span>
+          </div>
+          <div
+            style={{
+              fontSize: "18px",
+              fontWeight: "700",
+              color: "#eab308",
+              fontFamily:
+                "Cormorant Garamond, Times New Roman, serif",
+            }}
+          >
+            {room.price}
+          </div>
+        </div>
+
+        <Link
+          to={`/booking?room=${encodeURIComponent(room.name)}`}
+          style={{
+            display: "inline-block",
+            width: "100%",
+            textAlign: "center",
+            backgroundColor: "#eab308",
+            color: "#000000",
+            padding: "10px 0",
+            borderRadius: "4px",
+            fontSize: "12px",
+            fontWeight: "600",
+            textTransform: "uppercase",
+            letterSpacing: "0.15em",
+            textDecoration: "none",
+            transition: "background-color 0.3s ease",
+            fontFamily: "Cormorant Garamond, Times New Roman, serif",
+          }}
+          onMouseEnter={(e) =>
+            (e.currentTarget.style.backgroundColor = "#d4a308")
+          }
+          onMouseLeave={(e) =>
+            (e.currentTarget.style.backgroundColor = "#eab308")
+          }
+        >
+          Book Now
+        </Link>
+      </div>
+    </div>
+  );
+};
+
 const Home = () => {
   const navigate = useNavigate()
   const [current, setCurrent] = useState(0);
@@ -1194,7 +1413,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Rooms Section - Professional Slide-Up Style */}
+      {/* Rooms Section - Using RoomCard Component */}
       <div style={{ padding: "100px 24px", backgroundColor: "#f8f6f3" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "60px" }}>
@@ -1267,199 +1486,7 @@ const Home = () => {
             }}
           >
             {rooms.map((room, index) => (
-              <div
-                key={index}
-                style={{
-                  backgroundColor: "#ffffff",
-                  borderRadius: "12px",
-                  overflow: "hidden",
-                  boxShadow: "0 8px 30px rgba(0,0,0,0.08)",
-                  transition: "transform 0.4s ease, box-shadow 0.4s ease",
-                  border: "1px solid rgba(0,0,0,0.04)",
-                  position: "relative",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "translateY(-10px)";
-                  e.currentTarget.style.boxShadow =
-                    "0 20px 50px rgba(0,0,0,0.15)";
-                  const panel = e.currentTarget.querySelector(
-                    ".room-details-panel",
-                  );
-                  if (panel) {
-                    panel.style.transform = "translateY(0)";
-                    panel.style.opacity = "1";
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow =
-                    "0 8px 30px rgba(0,0,0,0.08)";
-                  const panel = e.currentTarget.querySelector(
-                    ".room-details-panel",
-                  );
-                  if (panel) {
-                    panel.style.transform = "translateY(100%)";
-                    panel.style.opacity = "0";
-                  }
-                }}
-              >
-                <div
-                  style={{
-                    position: "relative",
-                    height: "260px",
-                    overflow: "hidden",
-                  }}
-                >
-                  <img
-                    src={room.image}
-                    alt={room.name}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      transition: "transform 0.6s ease",
-                    }}
-                    onMouseEnter={(e) =>
-                      (e.currentTarget.style.transform = "scale(1.05)")
-                    }
-                    onMouseLeave={(e) =>
-                      (e.currentTarget.style.transform = "scale(1)")
-                    }
-                  />
-
-                  <div
-                    style={{
-                      position: "absolute",
-                      bottom: "20px",
-                      left: "20px",
-                      right: "20px",
-                      color: "#ffffff",
-                      textShadow: "0 2px 10px rgba(0,0,0,0.5)",
-                      zIndex: 2,
-                    }}
-                  >
-                    <h3
-                      style={{
-                        fontSize: "20px",
-                        fontWeight: "600",
-                        fontFamily: "Playfair Display, Georgia, serif",
-                        marginBottom: "4px",
-                        letterSpacing: "0.02em",
-                      }}
-                    >
-                      {room.name}
-                    </h3>
-                  </div>
-
-                  <div
-                    style={{
-                      position: "absolute",
-                      bottom: 0,
-                      left: 0,
-                      right: 0,
-                      height: "60%",
-                      background:
-                        "linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%)",
-                      zIndex: 1,
-                    }}
-                  />
-                </div>
-
-                <div
-                  className="room-details-panel"
-                  style={{
-                    padding: "20px 24px 24px",
-                    backgroundColor: "#ffffff",
-                    transform: "translateY(100%)",
-                    opacity: "0",
-                    transition:
-                      "transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s ease",
-                    position: "relative",
-                    zIndex: 3,
-                    marginTop: "-20px",
-                    borderTop: "3px solid #eab308",
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                      marginBottom: "12px",
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: "flex",
-                        gap: "16px",
-                        color: "#888888",
-                        fontSize: "14px",
-                        fontFamily:
-                          "Cormorant Garamond, Times New Roman, serif",
-                      }}
-                    >
-                      <span
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: "6px",
-                        }}
-                      >
-                        <span style={{ fontSize: "16px" }}>🛏</span> {room.bed}
-                      </span>
-                      <span
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: "6px",
-                        }}
-                      >
-                        <span style={{ fontSize: "16px" }}>👤</span>{" "}
-                        {room.guests}
-                      </span>
-                    </div>
-                    <div
-                      style={{
-                        fontSize: "18px",
-                        fontWeight: "700",
-                        color: "#eab308",
-                        fontFamily:
-                          "Cormorant Garamond, Times New Roman, serif",
-                      }}
-                    >
-                      {room.price}
-                    </div>
-                  </div>
-
-                  <Link
-                    to={`/booking?room=${encodeURIComponent(room.name)}`}
-                    style={{
-                      display: "inline-block",
-                      width: "100%",
-                      textAlign: "center",
-                      backgroundColor: "#eab308",
-                      color: "#000000",
-                      padding: "10px 0",
-                      borderRadius: "4px",
-                      fontSize: "12px",
-                      fontWeight: "600",
-                      textTransform: "uppercase",
-                      letterSpacing: "0.15em",
-                      textDecoration: "none",
-                      transition: "background-color 0.3s ease",
-                      fontFamily: "Cormorant Garamond, Times New Roman, serif",
-                    }}
-                    onMouseEnter={(e) =>
-                      (e.currentTarget.style.backgroundColor = "#d4a308")
-                    }
-                    onMouseLeave={(e) =>
-                      (e.currentTarget.style.backgroundColor = "#eab308")
-                    }
-                  >
-                    Book Now
-                  </Link>
-                </div>
-              </div>
+              <RoomCard key={index} room={room} />
             ))}
           </div>
         </div>
