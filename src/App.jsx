@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+// import PageLoader from './components/PageLoader'
 import Home from './pages/Home'
 import About from './pages/About'
 import Rooms from './pages/Rooms'
@@ -12,12 +13,15 @@ import ClassicRoom from './pages/rooms/ClassicRoom'
 import DeluxeRoom from './pages/rooms/DeluxeRoom'
 import LuxuryRoom from './pages/rooms/LuxuryRoom'
 import RoyaleSuite from './pages/rooms/RoyaleSuite'
+import Booking from './pages/Booking'
 
 function App() {
   return (
     <BrowserRouter>
+      {/* <PageLoader /> */}
       <Navbar />
       <Routes>
+        <Route path="/booking" element={<Booking />} />
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/rooms" element={<Rooms />} />

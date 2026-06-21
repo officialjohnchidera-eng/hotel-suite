@@ -267,7 +267,7 @@ const Navbar = () => {
           {/* Call To Action - Book Now with adjusted size and curves */}
           <li>
             <Link
-              to="/rooms"
+              to="/booking"
               className="relative overflow-hidden group inline-block"
               style={{
                 backgroundColor: '#eab308',
@@ -424,7 +424,7 @@ const Navbar = () => {
 
             <li className="mt-6">
               <Link
-                to="/rooms"
+                to="/booking"
                 onClick={() => setIsOpen(false)}
                 className="relative overflow-hidden group block w-full text-center rounded-sm py-3"
                 style={{
