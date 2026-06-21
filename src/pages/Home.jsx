@@ -1,13 +1,23 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import { Camera } from 'lucide-react';
+import social1 from "../assets/images/15129348745018470.jpg";
+import social2 from "../assets/images/430023464444141838.jpg";
+import social3 from "../assets/images/5207355814916294.jpg";
+import social4 from "../assets/images/55239532924383509.jpg";
+import social5 from "../assets/images/62909726040863702.jpg";
+import social6 from "../assets/images/6473993212477414.jpg";
 import hero1 from "../assets/images/hero1.jpg";
 import hero2 from "../assets/images/hero2.jpg";
 import hero3 from "../assets/images/hero3.jpg";
 import hero4 from "../assets/images/hero4.jpg";
+import hero5 from "../assets/images/hero5.jpg";
 import dining from "../assets/images/dining.jpg";
 import hero6 from "../assets/images/hero6.jpg";
 import fitnessCenter from "../assets/images/fitnessCenter.jpg";
+import fitness2 from "../assets/images/fitness2.jpg";
+import pool from "../assets/images/pool.jpg";
 import suiteIcon from "../assets/images/suite_building.png";
 import gymIcon from "../assets/images/gymHouseSvg.svg";
 import poolIcon from "../assets/images/swiming_icon.svg";
@@ -179,6 +189,8 @@ const Home = () => {
   const [adults, setAdults] = useState(1);
   const [children, setChildren] = useState(0);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [videoActiveIndex, setVideoActiveIndex] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -191,6 +203,14 @@ const Home = () => {
     return () => clearInterval(timer);
   }, []);
 
+  useEffect(() => {
+    if (!isPlaying) return;
+    const timer = setInterval(() => {
+      setVideoActiveIndex((prev) => (prev + 1) % 5);
+    }, 2500);
+    return () => clearInterval(timer);
+  }, [isPlaying]);
+
   const goToSlide = (index) => {
     if (animating || index === current) return;
     setAnimating(true);
@@ -201,13 +221,13 @@ const Home = () => {
   };
 
   const handleBooking = () => {
-  const params = new URLSearchParams()
-  if (checkIn) params.set('check_in', checkIn)
-  if (checkOut) params.set('check_out', checkOut)
-  params.set('adults', adults)
-  params.set('children', children)
-  navigate(`/booking?${params.toString()}`)
-}
+    const params = new URLSearchParams()
+    if (checkIn) params.set('check_in', checkIn)
+    if (checkOut) params.set('check_out', checkOut)
+    params.set('adults', adults)
+    params.set('children', children)
+    navigate(`/booking?${params.toString()}`)
+  }
 
   const nextTestimonial = () => {
     setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
@@ -862,6 +882,318 @@ const Home = () => {
         </div>
       </div>
 
+      {/* Video-Style Featured Section - FULL WIDTH */}
+      <div
+        style={{
+          position: 'relative',
+          width: '100%',
+          height: '60vh',
+          minHeight: '420px',
+          overflow: 'hidden',
+        }}
+      >
+        {[hero5, hero1, hero2, hero3, hero4].map((img, index) => (
+          <div
+            key={index}
+            style={{
+              position: 'absolute',
+              inset: 0,
+              backgroundImage: `url(${img})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              opacity: index === videoActiveIndex ? 1 : 0,
+              transform: index === videoActiveIndex && isPlaying
+                ? 'scale(1.08)'
+                : 'scale(1)',
+              transition: isPlaying
+                ? 'opacity 1s ease, transform 2.5s ease'
+                : 'opacity 0.6s ease',
+            }}
+          />
+        ))}
+
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: isPlaying ? 'rgba(0,0,0,0.35)' : 'rgba(0,0,0,0.5)',
+            transition: 'background 0.6s ease',
+          }}
+        />
+
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            textAlign: 'center',
+            padding: '0 24px',
+          }}
+        >
+          <p
+            style={{
+              color: '#eab308',
+              fontSize: '13px',
+              fontWeight: '500',
+              textTransform: 'uppercase',
+              letterSpacing: '0.3em',
+              marginBottom: '16px',
+              fontFamily: 'Cormorant Garamond, Times New Roman, serif',
+              opacity: isPlaying ? 0 : 1,
+              transition: 'opacity 0.4s ease',
+            }}
+          >
+            Julicis Hotel & Suites
+          </p>
+          <h2
+            style={{
+              color: '#ffffff',
+              fontSize: 'clamp(1.8rem, 4vw, 3.2rem)',
+              fontWeight: '600',
+              fontFamily: 'Playfair Display, Georgia, serif',
+              letterSpacing: '0.03em',
+              marginBottom: isPlaying ? 0 : '32px',
+              opacity: isPlaying ? 0 : 1,
+              transition: 'opacity 0.4s ease',
+              height: isPlaying ? 0 : 'auto',
+              overflow: 'hidden',
+            }}
+          >
+            Relax. Recharge. Repeat.
+          </h2>
+
+          {!isPlaying && (
+            <button
+              onClick={() => setIsPlaying(true)}
+              style={{
+                width: '64px',
+                height: '64px',
+                borderRadius: '50%',
+                border: '2px solid #eab308',
+                backgroundColor: 'rgba(234,179,8,0.15)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                transition: 'transform 0.3s ease, background-color 0.3s ease',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.transform = 'scale(1.1)'
+                e.currentTarget.style.backgroundColor = 'rgba(234,179,8,0.3)'
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.transform = 'scale(1)'
+                e.currentTarget.style.backgroundColor = 'rgba(234,179,8,0.15)'
+              }}
+            >
+              <div
+                style={{
+                  width: 0,
+                  height: 0,
+                  borderTop: '10px solid transparent',
+                  borderBottom: '10px solid transparent',
+                  borderLeft: '16px solid #eab308',
+                  marginLeft: '4px',
+                }}
+              />
+            </button>
+          )}
+        </div>
+
+        {isPlaying && (
+          <button
+            onClick={() => {
+              setIsPlaying(false)
+              setVideoActiveIndex(0)
+            }}
+            style={{
+              position: 'absolute',
+              top: '20px',
+              right: '20px',
+              width: '36px',
+              height: '36px',
+              borderRadius: '50%',
+              border: 'none',
+              backgroundColor: 'rgba(0,0,0,0.5)',
+              color: '#ffffff',
+              fontSize: '16px',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              zIndex: 5,
+            }}
+          >
+            ✕
+          </button>
+        )}
+
+        {isPlaying && (
+          <div
+            style={{
+              position: 'absolute',
+              bottom: '20px',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              display: 'flex',
+              gap: '8px',
+              zIndex: 5,
+            }}
+          >
+            {[hero5, hero1, hero2, hero3, hero4].map((_, index) => (
+              <div
+                key={index}
+                style={{
+                  width: index === videoActiveIndex ? '24px' : '8px',
+                  height: '4px',
+                  borderRadius: '2px',
+                  backgroundColor: index === videoActiveIndex ? '#eab308' : 'rgba(255,255,255,0.5)',
+                  transition: 'all 0.4s ease',
+                }}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Services Section */}
+      <div style={{ padding: "100px 24px", backgroundColor: "#ffffff" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: "60px" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "14px", marginBottom: "12px" }}>
+              <span style={{ width: "28px", height: "1px", backgroundColor: "#eab308" }} />
+              <p style={{ fontStyle: "italic", color: "#eab308", fontSize: "15px", fontWeight: "500", fontFamily: "Cormorant Garamond, Times New Roman, serif", margin: 0 }}>
+                Our Services
+              </p>
+              <span style={{ width: "28px", height: "1px", backgroundColor: "#eab308" }} />
+            </div>
+            <h2 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "600", color: "#1a1a1a", fontFamily: "Playfair Display, Georgia, serif" }}>
+              Premium Hotel Services
+            </h2>
+          </div>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+              gap: "30px",
+            }}
+          >
+            {[
+              {
+                image: dining,
+                title: "Restaurant",
+                desc: "Savor authentic Nigerian cuisine and international dishes crafted by our expert chefs in an elegant dining atmosphere.",
+                link: "/restaurant",
+              },
+              {
+                image: fitness2,
+                title: "Fitness Center",
+                desc: "Stay active during your stay with our fully equipped modern gym, open around the clock for your convenience.",
+                link: "/services#fitness",
+              },
+              {
+                image: pool,
+                title: "Swimming Pool",
+                desc: "Unwind and relax by our pristine swimming pool, the perfect escape after a long day of business or leisure.",
+                link: "/services#pool",
+              },
+            ].map((service, index) => (
+              <div
+                key={index}
+                style={{
+                  position: "relative",
+                  borderRadius: "12px",
+                  overflow: "hidden",
+                  height: "380px",
+                  cursor: "pointer",
+                }}
+                onMouseEnter={(e) => {
+                  const img = e.currentTarget.querySelector(".service-img");
+                  if (img) img.style.transform = "scale(1.1)";
+                }}
+                onMouseLeave={(e) => {
+                  const img = e.currentTarget.querySelector(".service-img");
+                  if (img) img.style.transform = "scale(1)";
+                }}
+              >
+                <img
+                  className="service-img"
+                  src={service.image}
+                  alt={service.title}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    transition: "transform 0.6s ease",
+                  }}
+                />
+
+                <div
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    background: "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.1) 100%)",
+                  }}
+                />
+
+                <div
+                  style={{
+                    position: "absolute",
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    padding: "28px",
+                  }}
+                >
+                  <h3
+                    style={{
+                      color: "#ffffff",
+                      fontSize: "22px",
+                      fontWeight: "600",
+                      marginBottom: "10px",
+                      fontFamily: "Playfair Display, Georgia, serif",
+                    }}
+                  >
+                    {service.title}
+                  </h3>
+                  <p
+                    style={{
+                      color: "rgba(255,255,255,0.85)",
+                      fontSize: "14px",
+                      lineHeight: 1.6,
+                      marginBottom: "16px",
+                      fontFamily: "Cormorant Garamond, Times New Roman, serif",
+                    }}
+                  >
+                    {service.desc}
+                  </p>
+                  <Link
+                    to={service.link}
+                    style={{
+                      color: "#eab308",
+                      fontSize: "13px",
+                      fontWeight: "600",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.1em",
+                      textDecoration: "none",
+                      borderBottom: "1px solid #eab308",
+                      paddingBottom: "4px",
+                      display: "inline-block",
+                    }}
+                  >
+                    Discover More
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* Rooms Section - Professional Slide-Up Style */}
       <div style={{ padding: "100px 24px", backgroundColor: "#f8f6f3" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
@@ -1129,6 +1461,114 @@ const Home = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Social Media Grid */}
+      <div style={{ padding: "100px 24px", backgroundColor: "#f9f9f7" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: "50px" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "14px", marginBottom: "12px" }}>
+              <span style={{ width: "28px", height: "1px", backgroundColor: "#eab308" }} />
+              <p style={{ fontStyle: "italic", color: "#eab308", fontSize: "15px", fontWeight: "500", fontFamily: "Cormorant Garamond, Times New Roman, serif", margin: 0 }}>
+                Stay Connected
+              </p>
+              <span style={{ width: "28px", height: "1px", backgroundColor: "#eab308" }} />
+            </div>
+            <h2 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "600", color: "#1a1a1a", fontFamily: "Playfair Display, Georgia, serif", marginBottom: "12px" }}>
+              Follow Us on Social Platforms
+            </h2>
+            <a
+              href="https://www.instagram.com/julicishotelandsuites"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+                color: "#eab308",
+                fontSize: "14px",
+                fontWeight: "600",
+                textDecoration: "none",
+                fontFamily: "Cormorant Garamond, Times New Roman, serif",
+              }}
+            >
+              <Camera size={16} /> @julicishotelandsuites
+            </a>
+          </div>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(6, 1fr)",
+              gap: "4px",
+            }}
+          >
+            {[social1, social2, social3, social4, social5, social6].map((img, index) => {
+              const imageUrl = img;
+              return (
+                <a
+                  key={index}
+                  href="https://www.instagram.com/julicishotelandsuites"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    position: "relative",
+                    aspectRatio: "1 / 1",
+                    overflow: "hidden",
+                    display: "block",
+                  }}
+                >
+                  <img
+                    src={imageUrl}
+                    alt={`Social post ${index + 1}`}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      transition: "transform 0.4s ease",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = "scale(1.1)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = "scale(1)";
+                    }}
+                  />
+                  <div
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      backgroundColor: "rgba(234,179,8,0)",
+                      transition: "background-color 0.3s ease",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = "rgba(234,179,8,0.7)";
+                      const img = e.currentTarget.parentElement.querySelector('img');
+                      if (img) img.style.transform = "scale(1.1)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = "rgba(234,179,8,0)";
+                      const img = e.currentTarget.parentElement.querySelector('img');
+                      if (img) img.style.transform = "scale(1)";
+                    }}
+                  >
+                    <Camera size={22} color="#ffffff" style={{ opacity: 0, transition: "opacity 0.3s ease" }} 
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.opacity = "1";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.opacity = "0";
+                      }}
+                    />
+                  </div>
+                </a>
+              );
+            })}
           </div>
         </div>
       </div>
