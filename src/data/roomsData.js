@@ -3,11 +3,11 @@ import bedroomB from '../assets/images/bedroomB.jpg'
 import bedroomC from '../assets/images/bedroomC.jpg'
 import bedroomD from '../assets/images/bedroomD.jpg'
 import bedroomE from '../assets/images/bedroomE.jpg'
-import bedroomG from '../assets/images/bedroomG.jpg'
 
 export const roomsData = [
   {
     name: 'Standard Room',
+    slug: 'standard',
     image: bedroomA,
     price: '₦55,000.00',
     bed: '1 Bed',
@@ -16,6 +16,7 @@ export const roomsData = [
   },
   {
     name: 'Classic Room',
+    slug: 'classic',
     image: bedroomE,
     price: '₦65,000.00',
     bed: '1 King Bed',
@@ -24,6 +25,7 @@ export const roomsData = [
   },
   {
     name: 'Deluxe Room',
+    slug: 'deluxe',
     image: bedroomD,
     price: '₦70,000.00',
     bed: '1 King Bed',
@@ -32,6 +34,7 @@ export const roomsData = [
   },
   {
     name: 'Luxury Room',
+    slug: 'luxury',
     image: bedroomC,
     price: '₦85,000.00',
     bed: '1 King Bed',
@@ -40,6 +43,7 @@ export const roomsData = [
   },
   {
     name: 'Royale Suite',
+    slug: 'royale-suite',
     image: bedroomB,
     price: '₦120,000.00',
     bed: '1 King Bed',
