@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
+import WhatsAppButton from './components/WhatsAppButton'
 import Home from './pages/Home'
 import About from './pages/About'
 import Rooms from './pages/Rooms'
@@ -35,6 +36,7 @@ function App() {
         <Route path="/rooms/royale-suite" element={<RoyaleSuite />} />
       </Routes>
       <Footer />
+      <WhatsAppButton />
     </BrowserRouter>
   )
 }
