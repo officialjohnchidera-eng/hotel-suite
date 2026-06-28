@@ -341,8 +341,7 @@ const Footer = () => {
               textAlign: "center",
             }}
           >
-            Copyright {new Date().getFullYear()} Julicis Hotel | Developed by
-            BuxOne Ltd
+            Copyright {new Date().getFullYear()} Golden Bella Hotels & Suites 
           </p>
 
           <div className="jul-footer-social">
