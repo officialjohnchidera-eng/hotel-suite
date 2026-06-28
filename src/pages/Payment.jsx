@@ -138,7 +138,7 @@ I'm attaching my payment receipt below.`;
         style={{
           position: "relative",
           width: "100%",
-          minHeight: "450px",
+          minHeight: "350px",
           backgroundImage: `url(${paymentBanner})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -220,20 +220,20 @@ I'm attaching my payment receipt below.`;
             style={{
               display: "inline-flex",
               alignItems: "center",
-              gap: "8px",
-              padding: "8px 20px",
+              gap: "6px",
+              padding: "6px 16px",
               border: "1px solid rgba(234, 179, 8, 0.25)",
               borderRadius: "100px",
-              marginBottom: "28px",
+              marginBottom: "20px",
               backgroundColor: "rgba(234, 179, 8, 0.1)",
               backdropFilter: "blur(10px)",
             }}
           >
-            <Shield size={14} color="#eab308" />
+            <Shield size={12} color="#eab308" />
             <span
               style={{
                 color: "#eab308",
-                fontSize: "11px",
+                fontSize: "9px",
                 fontWeight: "600",
                 textTransform: "uppercase",
                 letterSpacing: "0.2em",
@@ -246,10 +246,10 @@ I'm attaching my payment receipt below.`;
           <h1
             style={{
               color: "#ffffff",
-              fontSize: "clamp(2.5rem, 5.5vw, 4rem)",
+              fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
               fontWeight: "300",
               letterSpacing: "-0.02em",
-              marginBottom: "12px",
+              marginBottom: "8px",
               fontFamily: "'Playfair Display', Georgia, serif",
               lineHeight: 1.1,
               textShadow: "0 2px 20px rgba(0,0,0,0.3)",
@@ -265,12 +265,12 @@ I'm attaching my payment receipt below.`;
           <p
             style={{
               color: "rgba(255,255,255,0.7)",
-              fontSize: "clamp(0.95rem, 1.2vw, 1.1rem)",
+              fontSize: "clamp(0.8rem, 1vw, 0.95rem)",
               fontWeight: "300",
               letterSpacing: "0.05em",
               maxWidth: "480px",
               margin: "0 auto",
-              lineHeight: 1.8,
+              lineHeight: 1.6,
               textShadow: "0 1px 10px rgba(0,0,0,0.2)",
             }}
           >
@@ -280,7 +280,7 @@ I'm attaching my payment receipt below.`;
           {/* Decorative Gold Diamond */}
           <div
             style={{
-              marginTop: "32px",
+              marginTop: "24px",
               display: "flex",
               justifyContent: "center",
               gap: "8px",
@@ -288,7 +288,7 @@ I'm attaching my payment receipt below.`;
           >
             <div
               style={{
-                width: "40px",
+                width: "30px",
                 height: "1px",
                 background: "rgba(234,179,8,0.3)",
                 alignSelf: "center",
@@ -296,8 +296,8 @@ I'm attaching my payment receipt below.`;
             />
             <div
               style={{
-                width: "6px",
-                height: "6px",
+                width: "5px",
+                height: "5px",
                 background: "#eab308",
                 transform: "rotate(45deg)",
                 opacity: 0.6,
@@ -305,7 +305,7 @@ I'm attaching my payment receipt below.`;
             />
             <div
               style={{
-                width: "40px",
+                width: "30px",
                 height: "1px",
                 background: "rgba(234,179,8,0.3)",
                 alignSelf: "center",
@@ -316,16 +316,16 @@ I'm attaching my payment receipt below.`;
       </div>
 
       {/* Main Content - Premium Layout */}
-      <div style={{ padding: "60px 24px 80px", backgroundColor: "#f7f8fa" }}>
+      <div style={{ padding: "40px 24px 60px", backgroundColor: "#f7f8fa" }}>
         <div style={{ maxWidth: "720px", margin: "0 auto" }}>
           {/* Booking Summary - Glassmorphism Card */}
           <div
             style={{
               backgroundColor: "rgba(255,255,255,0.9)",
               backdropFilter: "blur(20px)",
-              borderRadius: "20px",
-              padding: "36px 32px",
-              marginBottom: "28px",
+              borderRadius: "16px",
+              padding: "28px 28px",
+              marginBottom: "24px",
               boxShadow:
                 "0 20px 60px rgba(0, 0, 0, 0.06), 0 2px 10px rgba(0, 0, 0, 0.02)",
               border: "1px solid rgba(255,255,255,0.8)",
@@ -336,17 +336,17 @@ I'm attaching my payment receipt below.`;
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
-                marginBottom: "24px",
+                marginBottom: "18px",
               }}
             >
               <div
-                style={{ display: "flex", alignItems: "center", gap: "12px" }}
+                style={{ display: "flex", alignItems: "center", gap: "10px" }}
               >
                 <div
                   style={{
-                    width: "44px",
-                    height: "44px",
-                    borderRadius: "12px",
+                    width: "36px",
+                    height: "36px",
+                    borderRadius: "10px",
                     background: "linear-gradient(135deg, #eab308, #f59e0b)",
                     display: "flex",
                     alignItems: "center",
@@ -354,12 +354,12 @@ I'm attaching my payment receipt below.`;
                     opacity: 0.9,
                   }}
                 >
-                  <CreditCard size={20} color="#ffffff" />
+                  <CreditCard size={16} color="#ffffff" />
                 </div>
                 <div>
                   <h3
                     style={{
-                      fontSize: "18px",
+                      fontSize: "15px",
                       fontWeight: "600",
                       color: "#1a1a1a",
                       margin: 0,
@@ -370,9 +370,9 @@ I'm attaching my payment receipt below.`;
                   </h3>
                   <p
                     style={{
-                      fontSize: "13px",
+                      fontSize: "11px",
                       color: "#9ca3af",
-                      margin: "2px 0 0 0",
+                      margin: "1px 0 0 0",
                     }}
                   >
                     Review your reservation details
@@ -381,11 +381,11 @@ I'm attaching my payment receipt below.`;
               </div>
               <span
                 style={{
-                  fontSize: "11px",
+                  fontSize: "9px",
                   fontWeight: "600",
                   color: "#eab308",
                   backgroundColor: "rgba(234, 179, 8, 0.1)",
-                  padding: "6px 14px",
+                  padding: "4px 12px",
                   borderRadius: "100px",
                   textTransform: "uppercase",
                   letterSpacing: "0.1em",
@@ -403,14 +403,14 @@ I'm attaching my payment receipt below.`;
                 style={{
                   display: "flex",
                   justifyContent: "space-between",
-                  padding: "10px 0",
+                  padding: "8px 0",
                   borderBottom: "1px solid #f3f4f6",
                 }}
               >
                 <span
                   style={{
                     color: "#6b7280",
-                    fontSize: "14px",
+                    fontSize: "12px",
                     fontWeight: "400",
                   }}
                 >
@@ -419,7 +419,7 @@ I'm attaching my payment receipt below.`;
                 <span
                   style={{
                     color: "#1a1a1a",
-                    fontSize: "14px",
+                    fontSize: "12px",
                     fontWeight: "500",
                   }}
                 >
@@ -431,14 +431,14 @@ I'm attaching my payment receipt below.`;
                   style={{
                     display: "flex",
                     justifyContent: "space-between",
-                    padding: "10px 0",
+                    padding: "8px 0",
                     borderBottom: "1px solid #f3f4f6",
                   }}
                 >
                   <span
                     style={{
                       color: "#6b7280",
-                      fontSize: "14px",
+                      fontSize: "12px",
                       fontWeight: "400",
                     }}
                   >
@@ -447,7 +447,7 @@ I'm attaching my payment receipt below.`;
                   <span
                     style={{
                       color: "#1a1a1a",
-                      fontSize: "14px",
+                      fontSize: "12px",
                       fontWeight: "500",
                     }}
                   >
@@ -460,14 +460,14 @@ I'm attaching my payment receipt below.`;
                   style={{
                     display: "flex",
                     justifyContent: "space-between",
-                    padding: "10px 0",
+                    padding: "8px 0",
                     borderBottom: "1px solid #f3f4f6",
                   }}
                 >
                   <span
                     style={{
                       color: "#6b7280",
-                      fontSize: "14px",
+                      fontSize: "12px",
                       fontWeight: "400",
                     }}
                   >
@@ -476,7 +476,7 @@ I'm attaching my payment receipt below.`;
                   <span
                     style={{
                       color: "#1a1a1a",
-                      fontSize: "14px",
+                      fontSize: "12px",
                       fontWeight: "500",
                     }}
                   >
@@ -488,13 +488,13 @@ I'm attaching my payment receipt below.`;
                 style={{
                   display: "flex",
                   justifyContent: "space-between",
-                  padding: "10px 0",
+                  padding: "8px 0",
                 }}
               >
                 <span
                   style={{
                     color: "#6b7280",
-                    fontSize: "14px",
+                    fontSize: "12px",
                     fontWeight: "400",
                   }}
                 >
@@ -503,7 +503,7 @@ I'm attaching my payment receipt below.`;
                 <span
                   style={{
                     color: "#1a1a1a",
-                    fontSize: "14px",
+                    fontSize: "12px",
                     fontWeight: "500",
                   }}
                 >
@@ -519,8 +519,8 @@ I'm attaching my payment receipt below.`;
             {nights > 0 && pricePerNight > 0 ? (
               <div
                 style={{
-                  marginTop: "22px",
-                  paddingTop: "22px",
+                  marginTop: "18px",
+                  paddingTop: "18px",
                   borderTop: "2px solid #f0f0f0",
                 }}
               >
@@ -528,9 +528,9 @@ I'm attaching my payment receipt below.`;
                   style={{
                     display: "flex",
                     justifyContent: "space-between",
-                    fontSize: "14px",
+                    fontSize: "12px",
                     color: "#6b7280",
-                    marginBottom: "8px",
+                    marginBottom: "6px",
                   }}
                 >
                   <span>
@@ -542,18 +542,18 @@ I'm attaching my payment receipt below.`;
                   style={{
                     display: "flex",
                     justifyContent: "space-between",
-                    fontSize: "24px",
+                    fontSize: "20px",
                     fontWeight: "700",
                     color: "#1a1a1a",
-                    marginTop: "14px",
-                    paddingTop: "14px",
+                    marginTop: "12px",
+                    paddingTop: "12px",
                     borderTop: "1px solid #f0f0f0",
                     alignItems: "center",
                   }}
                 >
                   <span
                     style={{
-                      fontSize: "16px",
+                      fontSize: "13px",
                       fontWeight: "500",
                       color: "#6b7280",
                     }}
@@ -565,7 +565,7 @@ I'm attaching my payment receipt below.`;
                       background: "linear-gradient(135deg, #eab308, #f59e0b)",
                       WebkitBackgroundClip: "text",
                       WebkitTextFillColor: "transparent",
-                      fontSize: "26px",
+                      fontSize: "22px",
                     }}
                   >
                     {formatNaira(totalAmount)}
@@ -575,20 +575,20 @@ I'm attaching my payment receipt below.`;
             ) : (
               <div
                 style={{
-                  marginTop: "20px",
-                  padding: "16px 20px",
+                  marginTop: "16px",
+                  padding: "12px 16px",
                   backgroundColor: "#fef2f2",
-                  borderRadius: "12px",
+                  borderRadius: "10px",
                   border: "1px solid #fecaca",
                   display: "flex",
                   alignItems: "center",
-                  gap: "10px",
+                  gap: "8px",
                 }}
               >
-                <AlertCircle size={18} color="#dc2626" />
+                <AlertCircle size={14} color="#dc2626" />
                 <span
                   style={{
-                    fontSize: "13px",
+                    fontSize: "11px",
                     color: "#991b1b",
                     fontWeight: "400",
                   }}
@@ -604,9 +604,9 @@ I'm attaching my payment receipt below.`;
           <div
             style={{
               background: "linear-gradient(160deg, #0f0f0f 0%, #1a1a1a 100%)",
-              borderRadius: "20px",
-              padding: "40px 36px",
-              marginBottom: "28px",
+              borderRadius: "16px",
+              padding: "32px 28px",
+              marginBottom: "24px",
               boxShadow: "0 24px 80px rgba(0, 0, 0, 0.2)",
               border: "1px solid rgba(255,255,255,0.06)",
               position: "relative",
@@ -631,17 +631,17 @@ I'm attaching my payment receipt below.`;
               style={{
                 display: "flex",
                 alignItems: "center",
-                gap: "14px",
-                marginBottom: "28px",
+                gap: "12px",
+                marginBottom: "22px",
                 position: "relative",
                 zIndex: 1,
               }}
             >
               <div
                 style={{
-                  width: "48px",
-                  height: "48px",
-                  borderRadius: "14px",
+                  width: "40px",
+                  height: "40px",
+                  borderRadius: "12px",
                   background:
                     "linear-gradient(135deg, rgba(234,179,8,0.15), rgba(234,179,8,0.05))",
                   border: "1px solid rgba(234,179,8,0.15)",
@@ -650,13 +650,13 @@ I'm attaching my payment receipt below.`;
                   justifyContent: "center",
                 }}
               >
-                <span style={{ fontSize: "22px" }}>🏛️</span>
+                <span style={{ fontSize: "18px" }}>🏛️</span>
               </div>
               <div>
                 <p
                   style={{
                     color: "#eab308",
-                    fontSize: "11px",
+                    fontSize: "9px",
                     fontWeight: "600",
                     textTransform: "uppercase",
                     letterSpacing: "0.15em",
@@ -668,8 +668,8 @@ I'm attaching my payment receipt below.`;
                 <p
                   style={{
                     color: "rgba(255,255,255,0.3)",
-                    fontSize: "13px",
-                    margin: "2px 0 0 0",
+                    fontSize: "11px",
+                    margin: "1px 0 0 0",
                   }}
                 >
                   Make payment to the account below
@@ -683,14 +683,14 @@ I'm attaching my payment receipt below.`;
                   display: "flex",
                   justifyContent: "space-between",
                   alignItems: "center",
-                  padding: "16px 0",
+                  padding: "12px 0",
                   borderBottom: "1px solid rgba(255,255,255,0.05)",
                 }}
               >
                 <span
                   style={{
                     color: "rgba(255,255,255,0.4)",
-                    fontSize: "13px",
+                    fontSize: "11px",
                     fontWeight: "400",
                     letterSpacing: "0.02em",
                   }}
@@ -700,7 +700,7 @@ I'm attaching my payment receipt below.`;
                 <span
                   style={{
                     color: "#ffffff",
-                    fontSize: "15px",
+                    fontSize: "12px",
                     fontWeight: "500",
                     letterSpacing: "0.02em",
                   }}
@@ -714,14 +714,14 @@ I'm attaching my payment receipt below.`;
                   display: "flex",
                   justifyContent: "space-between",
                   alignItems: "center",
-                  padding: "16px 0",
+                  padding: "12px 0",
                   borderBottom: "1px solid rgba(255,255,255,0.05)",
                 }}
               >
                 <span
                   style={{
                     color: "rgba(255,255,255,0.4)",
-                    fontSize: "13px",
+                    fontSize: "11px",
                     fontWeight: "400",
                     letterSpacing: "0.02em",
                   }}
@@ -731,7 +731,7 @@ I'm attaching my payment receipt below.`;
                 <span
                   style={{
                     color: "#ffffff",
-                    fontSize: "15px",
+                    fontSize: "12px",
                     fontWeight: "500",
                     letterSpacing: "0.02em",
                   }}
@@ -745,14 +745,14 @@ I'm attaching my payment receipt below.`;
                   display: "flex",
                   justifyContent: "space-between",
                   alignItems: "center",
-                  padding: "16px 0",
+                  padding: "12px 0",
                   borderBottom: "none",
                 }}
               >
                 <span
                   style={{
                     color: "rgba(255,255,255,0.4)",
-                    fontSize: "13px",
+                    fontSize: "11px",
                     fontWeight: "400",
                     letterSpacing: "0.02em",
                   }}
@@ -760,18 +760,18 @@ I'm attaching my payment receipt below.`;
                   Account Number
                 </span>
                 <div
-                  style={{ display: "flex", alignItems: "center", gap: "14px" }}
+                  style={{ display: "flex", alignItems: "center", gap: "10px" }}
                 >
                   <span
                     style={{
                       color: "#ffffff",
-                      fontSize: "22px",
+                      fontSize: "18px",
                       fontWeight: "600",
                       letterSpacing: "0.08em",
                       fontFamily: "'Inter', monospace",
                       background: "rgba(255,255,255,0.03)",
-                      padding: "4px 12px",
-                      borderRadius: "8px",
+                      padding: "4px 10px",
+                      borderRadius: "6px",
                     }}
                   >
                     {bankDetails.accountNumber}
@@ -781,15 +781,15 @@ I'm attaching my payment receipt below.`;
                     style={{
                       background: copied ? "#16a34a" : "rgba(234, 179, 8, 0.1)",
                       border: "1px solid rgba(234,179,8,0.15)",
-                      borderRadius: "10px",
-                      padding: "10px",
+                      borderRadius: "8px",
+                      padding: "8px",
                       cursor: "pointer",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                      width: "42px",
-                      height: "42px",
+                      width: "34px",
+                      height: "34px",
                     }}
                     onMouseEnter={(e) => {
                       if (!copied) {
@@ -809,9 +809,9 @@ I'm attaching my payment receipt below.`;
                     }}
                   >
                     {copied ? (
-                      <Check size={18} color="#ffffff" />
+                      <Check size={14} color="#ffffff" />
                     ) : (
-                      <Copy size={18} color="#eab308" />
+                      <Copy size={14} color="#eab308" />
                     )}
                   </button>
                 </div>
@@ -821,21 +821,21 @@ I'm attaching my payment receipt below.`;
             {/* Premium Footer Line */}
             <div
               style={{
-                marginTop: "24px",
-                paddingTop: "20px",
+                marginTop: "18px",
+                paddingTop: "16px",
                 borderTop: "1px solid rgba(255,255,255,0.04)",
                 display: "flex",
                 alignItems: "center",
-                gap: "8px",
+                gap: "6px",
                 position: "relative",
                 zIndex: 1,
               }}
             >
-              <Clock size={14} color="rgba(255,255,255,0.2)" />
+              <Clock size={12} color="rgba(255,255,255,0.2)" />
               <span
                 style={{
                   color: "rgba(255,255,255,0.2)",
-                  fontSize: "12px",
+                  fontSize: "10px",
                   fontWeight: "300",
                   letterSpacing: "0.02em",
                 }}
@@ -848,21 +848,21 @@ I'm attaching my payment receipt below.`;
           {/* Instructions - Premium Alert */}
           <div
             style={{
-              padding: "20px 24px",
+              padding: "16px 20px",
               background: "linear-gradient(135deg, #fffbeb, #fef3c7)",
-              borderRadius: "14px",
-              marginBottom: "28px",
+              borderRadius: "12px",
+              marginBottom: "24px",
               border: "1px solid rgba(234, 179, 8, 0.2)",
               boxShadow: "0 2px 8px rgba(234, 179, 8, 0.06)",
             }}
           >
             <div
-              style={{ display: "flex", gap: "14px", alignItems: "flex-start" }}
+              style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}
             >
               <div
                 style={{
-                  minWidth: "32px",
-                  height: "32px",
+                  minWidth: "28px",
+                  height: "28px",
                   borderRadius: "50%",
                   background: "rgba(234, 179, 8, 0.12)",
                   display: "flex",
@@ -870,14 +870,14 @@ I'm attaching my payment receipt below.`;
                   justifyContent: "center",
                 }}
               >
-                <span style={{ fontSize: "16px" }}>💡</span>
+                <span style={{ fontSize: "14px" }}>💡</span>
               </div>
               <div>
                 <p
                   style={{
-                    fontSize: "14px",
+                    fontSize: "12px",
                     color: "#78350f",
-                    lineHeight: 1.7,
+                    lineHeight: 1.6,
                     margin: 0,
                     fontWeight: "400",
                   }}
@@ -913,13 +913,13 @@ I'm attaching my payment receipt below.`;
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              gap: "14px",
+              gap: "10px",
               width: "100%",
               background: "linear-gradient(135deg, #25D366 0%, #1ebe57 100%)",
               color: "#ffffff",
-              padding: "20px 0",
-              borderRadius: "14px",
-              fontSize: "15px",
+              padding: "16px 0",
+              borderRadius: "12px",
+              fontSize: "13px",
               fontWeight: "600",
               textTransform: "uppercase",
               letterSpacing: "0.08em",
@@ -958,7 +958,7 @@ I'm attaching my payment receipt below.`;
               onMouseEnter={(e) => (e.currentTarget.style.left = "100%")}
               onMouseLeave={(e) => (e.currentTarget.style.left = "-100%")}
             />
-            <MessageCircle size={22} color="#ffffff" />
+            <MessageCircle size={18} color="#ffffff" />
             <span>Send Receipt via WhatsApp</span>
           </a>
 
@@ -968,9 +968,9 @@ I'm attaching my payment receipt below.`;
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              gap: "32px",
-              marginTop: "36px",
-              paddingTop: "28px",
+              gap: "24px",
+              marginTop: "28px",
+              paddingTop: "22px",
               borderTop: "1px solid #e5e7eb",
             }}
           >
@@ -978,13 +978,13 @@ I'm attaching my payment receipt below.`;
               to="/contact"
               style={{
                 color: "#6b7280",
-                fontSize: "13px",
+                fontSize: "11px",
                 textDecoration: "none",
                 fontWeight: "500",
                 transition: "all 0.2s ease",
                 display: "flex",
                 alignItems: "center",
-                gap: "6px",
+                gap: "4px",
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.color = "#eab308";
@@ -995,15 +995,15 @@ I'm attaching my payment receipt below.`;
                 e.currentTarget.style.transform = "translateY(0)";
               }}
             >
-              <span style={{ fontSize: "16px" }}>✉️</span>
+              <span style={{ fontSize: "14px" }}>✉️</span>
               Need Help?
             </Link>
-            <span style={{ color: "#d1d5db", fontSize: "13px" }}>•</span>
+            <span style={{ color: "#d1d5db", fontSize: "11px" }}>•</span>
             <Link
               to="/"
               style={{
                 color: "#6b7280",
-                fontSize: "13px",
+                fontSize: "11px",
                 textDecoration: "none",
                 fontWeight: "500",
                 transition: "all 0.2s ease",
@@ -1027,31 +1027,31 @@ I'm attaching my payment receipt below.`;
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              gap: "12px",
-              marginTop: "28px",
-              padding: "12px 24px",
+              gap: "10px",
+              marginTop: "22px",
+              padding: "10px 20px",
               background: "rgba(255,255,255,0.7)",
               backdropFilter: "blur(10px)",
               borderRadius: "100px",
               border: "1px solid rgba(255,255,255,0.8)",
             }}
           >
-            <Shield size={16} color="#9ca3af" />
+            <Shield size={14} color="#9ca3af" />
             <span
               style={{
                 color: "#9ca3af",
-                fontSize: "12px",
+                fontSize: "10px",
                 fontWeight: "400",
                 letterSpacing: "0.03em",
               }}
             >
               Your payment is secure & encrypted
             </span>
-            <span style={{ color: "#e5e7eb", fontSize: "12px" }}>•</span>
+            <span style={{ color: "#e5e7eb", fontSize: "10px" }}>•</span>
             <span
               style={{
                 color: "#9ca3af",
-                fontSize: "12px",
+                fontSize: "10px",
                 fontWeight: "400",
                 letterSpacing: "0.03em",
               }}
