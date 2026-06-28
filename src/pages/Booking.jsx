@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { useSearchParams, useNavigate } from 'react-router-dom'
 import emailjs from '@emailjs/browser'
+import { CheckCircle } from 'lucide-react'
 import { roomsData } from '../data/roomsData'
 import bedroomB from '../assets/images/bedroomB.jpg'
 
@@ -36,23 +37,24 @@ const labelStyle = {
 
 const Booking = () => {
   const [searchParams] = useSearchParams()
+  const navigate = useNavigate()
   const preselectedRoom = searchParams.get('room') || roomOptions[0]
-const preCheckIn = searchParams.get('check_in') || ''
-const preCheckOut = searchParams.get('check_out') || ''
-const preAdults = searchParams.get('adults') || 1
-const preChildren = searchParams.get('children') || 0
+  const preCheckIn = searchParams.get('check_in') || ''
+  const preCheckOut = searchParams.get('check_out') || ''
+  const preAdults = searchParams.get('adults') || 1
+  const preChildren = searchParams.get('children') || 0
 
   const [formData, setFormData] = useState({
-  name: '',
-  email: '',
-  phone: '',
-  room_type: preselectedRoom,
-  check_in: preCheckIn,
-  check_out: preCheckOut,
-  adults: preAdults,
-  children: preChildren,
-  special_requests: '',
-})
+    name: '',
+    email: '',
+    phone: '',
+    room_type: preselectedRoom,
+    check_in: preCheckIn,
+    check_out: preCheckOut,
+    adults: preAdults,
+    children: preChildren,
+    special_requests: '',
+  })
   const [status, setStatus] = useState('idle') // idle | sending | success | error
 
   const selectedRoomData = roomsData.find(room => room.name === formData.room_type) || roomsData[0]
@@ -70,17 +72,18 @@ const preChildren = searchParams.get('children') || 0
       .send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formData, EMAILJS_PUBLIC_KEY)
       .then(() => {
         setStatus('success')
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          room_type: roomOptions[0],
-          check_in: '',
-          check_out: '',
-          adults: 1,
-          children: 0,
-          special_requests: '',
-        })
+
+        const params = new URLSearchParams()
+        params.set('room', formData.room_type)
+        params.set('check_in', formData.check_in)
+        params.set('check_out', formData.check_out)
+        params.set('adults', formData.adults)
+        params.set('children', formData.children)
+        params.set('name', formData.name)
+
+        setTimeout(() => {
+          navigate(`/payment?${params.toString()}`)
+        }, 1500)
       })
       .catch(() => {
         setStatus('error')
@@ -163,7 +166,7 @@ const preChildren = searchParams.get('children') || 0
                   Booking Request Sent!
                 </p>
                 <p style={{ color: '#166534', fontSize: '14px', margin: '4px 0 0' }}>
-                  Our team will contact you shortly to confirm your reservation.
+                  Redirecting you to payment details...
                 </p>
               </div>
             </div>
@@ -268,7 +271,6 @@ const preChildren = searchParams.get('children') || 0
 
           <form onSubmit={handleSubmit}>
             <div style={{ display: 'grid', gap: '24px' }}>
-              {/* Room Type */}
               <div>
                 <label style={labelStyle}>Room Type</label>
                 <select
@@ -284,7 +286,6 @@ const preChildren = searchParams.get('children') || 0
                 </select>
               </div>
 
-              {/* Dates */}
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
                 <div>
                   <label style={labelStyle}>Check In</label>
@@ -310,7 +311,6 @@ const preChildren = searchParams.get('children') || 0
                 </div>
               </div>
 
-              {/* Guests */}
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
                 <div>
                   <label style={labelStyle}>Adults</label>
@@ -337,7 +337,6 @@ const preChildren = searchParams.get('children') || 0
                 </div>
               </div>
 
-              {/* Name */}
               <div>
                 <label style={labelStyle}>Full Name</label>
                 <input
@@ -351,7 +350,6 @@ const preChildren = searchParams.get('children') || 0
                 />
               </div>
 
-              {/* Email & Phone */}
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
                 <div>
                   <label style={labelStyle}>Email</label>
@@ -379,7 +377,6 @@ const preChildren = searchParams.get('children') || 0
                 </div>
               </div>
 
-              {/* Special Requests */}
               <div>
                 <label style={labelStyle}>Special Requests (Optional)</label>
                 <textarea

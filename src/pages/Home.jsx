@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { Mail } from 'lucide-react';
-import { useNavigate } from 'react-router-dom'
-import { Link } from 'react-router-dom'
-import { Camera } from 'lucide-react';
+import { Mail } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { Camera } from "lucide-react";
 import social1 from "../assets/images/15129348745018470.jpg";
 import social2 from "../assets/images/430023464444141838.jpg";
 import social3 from "../assets/images/5207355814916294.jpg";
@@ -33,7 +33,7 @@ import bedroomG from "../assets/images/bedroomG.jpg";
 const slides = [
   {
     image: hero1,
-    heading: "Welcome To Julicis Hotel & Suites",
+    heading: "Welcome To Golden Bella Hotels and Suites",
     subheading: "Experience Luxury Like Never Before",
   },
   {
@@ -123,13 +123,13 @@ const testimonials = [
   {
     name: "Jessica Umeh",
     title: "Business Traveler",
-    text: "I recently stayed at Julicis Hotel for a business trip, and I couldn't have asked for a better experience. The room was a true sanctuary, it was very peaceful and quiet. The high-speed WiFi was a huge plus. Everything was well maintained and clean, and I appreciated the attention to detail. Highly recommend",
+    text: "I recently stayed at Golden Bella Hotels & Suites for a business trip, and I couldn't have asked for a better experience. The room was a true sanctuary, it was very peaceful and quiet. The high-speed WiFi was a huge plus. Everything was well maintained and clean, and I appreciated the attention to detail. Highly recommend",
     rating: 5,
   },
   {
     name: "Michael Adebayo",
     title: "Frequent Guest",
-    text: "The service at Julicis Hotel exceeded all my expectations. From the warm welcome to the impeccable room service, every detail was perfect. The location is ideal and the amenities are top-notch. I highly recommend this hotel to anyone visiting Lagos.",
+    text: "The service at Golden Bella Hotel exceeded all my expectations. From the warm welcome to the impeccable room service, every detail was perfect. The location is ideal and the amenities are top-notch. I highly recommend this hotel to anyone visiting Lagos.",
     rating: 5,
   },
 ];
@@ -190,8 +190,8 @@ const RoomCard = ({ room }) => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
     };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const togglePanel = () => {
@@ -206,7 +206,9 @@ const RoomCard = ({ room }) => {
         backgroundColor: "#ffffff",
         borderRadius: "12px",
         overflow: "hidden",
-        boxShadow: isOpen ? "0 20px 50px rgba(0,0,0,0.15)" : "0 8px 30px rgba(0,0,0,0.08)",
+        boxShadow: isOpen
+          ? "0 20px 50px rgba(0,0,0,0.15)"
+          : "0 8px 30px rgba(0,0,0,0.08)",
         transition: "transform 0.4s ease, box-shadow 0.4s ease",
         border: "1px solid rgba(0,0,0,0.04)",
         position: "relative",
@@ -248,9 +250,7 @@ const RoomCard = ({ room }) => {
           onMouseEnter={(e) =>
             (e.currentTarget.style.transform = "scale(1.05)")
           }
-          onMouseLeave={(e) =>
-            (e.currentTarget.style.transform = "scale(1)")
-          }
+          onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
         />
 
         <div
@@ -306,11 +306,17 @@ const RoomCard = ({ room }) => {
         style={{
           padding: "20px 24px 24px",
           backgroundColor: "#ffffff",
-          transform: isOpen ? "translateY(0)" : isMobile ? "translateY(0)" : "translateY(100%)",
+          transform: isOpen
+            ? "translateY(0)"
+            : isMobile
+              ? "translateY(0)"
+              : "translateY(100%)",
           opacity: isOpen ? "1" : isMobile ? "1" : "0",
           maxHeight: isOpen ? "300px" : isMobile ? "300px" : "0",
           overflow: "hidden",
-          transition: isMobile ? "none" : "transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s ease",
+          transition: isMobile
+            ? "none"
+            : "transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s ease",
           position: "relative",
           zIndex: 3,
           marginTop: "-20px",
@@ -331,8 +337,7 @@ const RoomCard = ({ room }) => {
               gap: "16px",
               color: "#888888",
               fontSize: "14px",
-              fontFamily:
-                "Cormorant Garamond, Times New Roman, serif",
+              fontFamily: "Cormorant Garamond, Times New Roman, serif",
             }}
           >
             <span
@@ -351,8 +356,7 @@ const RoomCard = ({ room }) => {
                 gap: "6px",
               }}
             >
-              <span style={{ fontSize: "16px" }}>👤</span>{" "}
-              {room.guests}
+              <span style={{ fontSize: "16px" }}>👤</span> {room.guests}
             </span>
           </div>
           <div
@@ -360,8 +364,7 @@ const RoomCard = ({ room }) => {
               fontSize: "18px",
               fontWeight: "700",
               color: "#eab308",
-              fontFamily:
-                "Cormorant Garamond, Times New Roman, serif",
+              fontFamily: "Cormorant Garamond, Times New Roman, serif",
             }}
           >
             {room.price}
@@ -401,7 +404,7 @@ const RoomCard = ({ room }) => {
 };
 
 const Home = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [current, setCurrent] = useState(0);
   const [animating, setAnimating] = useState(false);
   const [checkIn, setCheckIn] = useState("");
@@ -443,13 +446,13 @@ const Home = () => {
   };
 
   const handleBooking = () => {
-    const params = new URLSearchParams()
-    if (checkIn) params.set('check_in', checkIn)
-    if (checkOut) params.set('check_out', checkOut)
-    params.set('adults', adults)
-    params.set('children', children)
-    navigate(`/booking?${params.toString()}`)
-  }
+    const params = new URLSearchParams();
+    if (checkIn) params.set("check_in", checkIn);
+    if (checkOut) params.set("check_out", checkOut);
+    params.set("adults", adults);
+    params.set("children", children);
+    navigate(`/booking?${params.toString()}`);
+  };
 
   const nextTestimonial = () => {
     setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
@@ -782,7 +785,10 @@ const Home = () => {
       </div>
 
       {/* About Section */}
-      <div id="about" style={{ padding: "100px 24px", backgroundColor: "#ffffff" }}>
+      <div
+        id="about"
+        style={{ padding: "100px 24px", backgroundColor: "#ffffff" }}
+      >
         <div
           style={{
             maxWidth: "1200px",
@@ -814,7 +820,7 @@ const Home = () => {
             >
               <img
                 src={hero2}
-                alt="Julicis Hotel Interior"
+                alt="Golden Bella Hotel Interior"
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
             </div>
@@ -834,7 +840,7 @@ const Home = () => {
             >
               <img
                 src={hero3}
-                alt="Julicis Hotel Suite"
+                alt="Golden Bella Hotel Suite"
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
             </div>
@@ -894,7 +900,7 @@ const Home = () => {
                 fontFamily: "Playfair Display, Georgia, serif",
               }}
             >
-              Welcome To Julicis Hotel and Suite
+              Welcome To Golden Bella Hotels and Suites
             </h2>
 
             <p
@@ -905,10 +911,9 @@ const Home = () => {
                 marginBottom: "16px",
               }}
             >
-              Julicis Hotels & Suites is a premier hospitality brand offering a
+              Golden Bella Hotels & Suites is a premier hospitality brand offering a
               luxurious blend of comfort, style, and personalized service.
-              Nestled in the heart of Lagos, Nigeria, located at No 13 Alhaji
-              Agbabiaka Street, Ago Palace Way Okota. Our hotel caters to both
+              Nestled in the heart of Lagos, Nigeria, located at 125, Kirikiri Road, Olodi Apapa Lagos. Our hotel caters to both
               business and leisure travelers, delivering world-class experiences
               in a serene and secure environment.
             </p>
@@ -958,7 +963,10 @@ const Home = () => {
       </div>
 
       {/* Facilities Section */}
-      <div id="facilities" style={{ padding: "100px 24px", backgroundColor: "#f9f9f7" }}>
+      <div
+        id="facilities"
+        style={{ padding: "100px 24px", backgroundColor: "#f9f9f7" }}
+      >
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "60px" }}>
             <div
@@ -1114,82 +1122,85 @@ const Home = () => {
       </div>
 
       {/* Video-Style Featured Section - FULL WIDTH */}
-      <div id="recreation" style={{
-          position: 'relative',
-          width: '100%',
-          height: '60vh',
-          minHeight: '420px',
-          overflow: 'hidden',
+      <div
+        id="recreation"
+        style={{
+          position: "relative",
+          width: "100%",
+          height: "60vh",
+          minHeight: "420px",
+          overflow: "hidden",
         }}
       >
         {[hero5, hero1, hero2, hero3, hero4].map((img, index) => (
           <div
             key={index}
             style={{
-              position: 'absolute',
+              position: "absolute",
               inset: 0,
               backgroundImage: `url(${img})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
+              backgroundSize: "cover",
+              backgroundPosition: "center",
               opacity: index === videoActiveIndex ? 1 : 0,
-              transform: index === videoActiveIndex && isPlaying
-                ? 'scale(1.08)'
-                : 'scale(1)',
+              transform:
+                index === videoActiveIndex && isPlaying
+                  ? "scale(1.08)"
+                  : "scale(1)",
               transition: isPlaying
-                ? 'opacity 1s ease, transform 2.5s ease'
-                : 'opacity 0.6s ease',
+                ? "opacity 1s ease, transform 2.5s ease"
+                : "opacity 0.6s ease",
             }}
           />
         ))}
 
         <div
           style={{
-            position: 'absolute',
+            position: "absolute",
             inset: 0,
-            background: isPlaying ? 'rgba(0,0,0,0.35)' : 'rgba(0,0,0,0.5)',
-            transition: 'background 0.6s ease',
+            background: isPlaying ? "rgba(0,0,0,0.35)" : "rgba(0,0,0,0.5)",
+            transition: "background 0.6s ease",
           }}
         />
 
         <div
           style={{
-            position: 'absolute',
+            position: "absolute",
             inset: 0,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            textAlign: 'center',
-            padding: '0 24px',
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            textAlign: "center",
+            padding: "0 24px",
           }}
         >
           <p
             style={{
-              color: '#eab308',
-              fontSize: '13px',
-              fontWeight: '500',
-              textTransform: 'uppercase',
-              letterSpacing: '0.3em',
-              marginBottom: '16px',
-              fontFamily: 'Cormorant Garamond, Times New Roman, serif',
+              color: "#eab308",
+              fontSize: "13px",
+              fontWeight: "500",
+              textTransform: "uppercase",
+              letterSpacing: "0.3em",
+              marginBottom: "16px",
+              fontFamily: "Cormorant Garamond, Times New Roman, serif",
               opacity: isPlaying ? 0 : 1,
-              transition: 'opacity 0.4s ease',
+              transition: "opacity 0.4s ease",
             }}
           >
-            Julicis Hotel & Suites
+            Golden Bella Hotels and Suites
           </p>
           <h2
             style={{
-              color: '#ffffff',
-              fontSize: 'clamp(1.8rem, 4vw, 3.2rem)',
-              fontWeight: '600',
-              fontFamily: 'Playfair Display, Georgia, serif',
-              letterSpacing: '0.03em',
-              marginBottom: isPlaying ? 0 : '32px',
+              color: "#ffffff",
+              fontSize: "clamp(1.8rem, 4vw, 3.2rem)",
+              fontWeight: "600",
+              fontFamily: "Playfair Display, Georgia, serif",
+              letterSpacing: "0.03em",
+              marginBottom: isPlaying ? 0 : "32px",
               opacity: isPlaying ? 0 : 1,
-              transition: 'opacity 0.4s ease',
-              height: isPlaying ? 0 : 'auto',
-              overflow: 'hidden',
+              transition: "opacity 0.4s ease",
+              height: isPlaying ? 0 : "auto",
+              overflow: "hidden",
             }}
           >
             Relax. Recharge. Repeat.
@@ -1199,34 +1210,34 @@ const Home = () => {
             <button
               onClick={() => setIsPlaying(true)}
               style={{
-                width: '64px',
-                height: '64px',
-                borderRadius: '50%',
-                border: '2px solid #eab308',
-                backgroundColor: 'rgba(234,179,8,0.15)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-                transition: 'transform 0.3s ease, background-color 0.3s ease',
+                width: "64px",
+                height: "64px",
+                borderRadius: "50%",
+                border: "2px solid #eab308",
+                backgroundColor: "rgba(234,179,8,0.15)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: "pointer",
+                transition: "transform 0.3s ease, background-color 0.3s ease",
               }}
-              onMouseEnter={e => {
-                e.currentTarget.style.transform = 'scale(1.1)'
-                e.currentTarget.style.backgroundColor = 'rgba(234,179,8,0.3)'
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "scale(1.1)";
+                e.currentTarget.style.backgroundColor = "rgba(234,179,8,0.3)";
               }}
-              onMouseLeave={e => {
-                e.currentTarget.style.transform = 'scale(1)'
-                e.currentTarget.style.backgroundColor = 'rgba(234,179,8,0.15)'
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "scale(1)";
+                e.currentTarget.style.backgroundColor = "rgba(234,179,8,0.15)";
               }}
             >
               <div
                 style={{
                   width: 0,
                   height: 0,
-                  borderTop: '10px solid transparent',
-                  borderBottom: '10px solid transparent',
-                  borderLeft: '16px solid #eab308',
-                  marginLeft: '4px',
+                  borderTop: "10px solid transparent",
+                  borderBottom: "10px solid transparent",
+                  borderLeft: "16px solid #eab308",
+                  marginLeft: "4px",
                 }}
               />
             </button>
@@ -1236,24 +1247,24 @@ const Home = () => {
         {isPlaying && (
           <button
             onClick={() => {
-              setIsPlaying(false)
-              setVideoActiveIndex(0)
+              setIsPlaying(false);
+              setVideoActiveIndex(0);
             }}
             style={{
-              position: 'absolute',
-              top: '20px',
-              right: '20px',
-              width: '36px',
-              height: '36px',
-              borderRadius: '50%',
-              border: 'none',
-              backgroundColor: 'rgba(0,0,0,0.5)',
-              color: '#ffffff',
-              fontSize: '16px',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
+              position: "absolute",
+              top: "20px",
+              right: "20px",
+              width: "36px",
+              height: "36px",
+              borderRadius: "50%",
+              border: "none",
+              backgroundColor: "rgba(0,0,0,0.5)",
+              color: "#ffffff",
+              fontSize: "16px",
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
               zIndex: 5,
             }}
           >
@@ -1264,12 +1275,12 @@ const Home = () => {
         {isPlaying && (
           <div
             style={{
-              position: 'absolute',
-              bottom: '20px',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              display: 'flex',
-              gap: '8px',
+              position: "absolute",
+              bottom: "20px",
+              left: "50%",
+              transform: "translateX(-50%)",
+              display: "flex",
+              gap: "8px",
               zIndex: 5,
             }}
           >
@@ -1277,11 +1288,14 @@ const Home = () => {
               <div
                 key={index}
                 style={{
-                  width: index === videoActiveIndex ? '24px' : '8px',
-                  height: '4px',
-                  borderRadius: '2px',
-                  backgroundColor: index === videoActiveIndex ? '#eab308' : 'rgba(255,255,255,0.5)',
-                  transition: 'all 0.4s ease',
+                  width: index === videoActiveIndex ? "24px" : "8px",
+                  height: "4px",
+                  borderRadius: "2px",
+                  backgroundColor:
+                    index === videoActiveIndex
+                      ? "#eab308"
+                      : "rgba(255,255,255,0.5)",
+                  transition: "all 0.4s ease",
                 }}
               />
             ))}
@@ -1290,17 +1304,56 @@ const Home = () => {
       </div>
 
       {/* Services Section */}
-      <div id="services-section" style={{ padding: "100px 24px", backgroundColor: "#ffffff" }}>
+      <div
+        id="services-section"
+        style={{ padding: "100px 24px", backgroundColor: "#ffffff" }}
+      >
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "60px" }}>
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "14px", marginBottom: "12px" }}>
-              <span style={{ width: "28px", height: "1px", backgroundColor: "#eab308" }} />
-              <p style={{ fontStyle: "italic", color: "#eab308", fontSize: "15px", fontWeight: "500", fontFamily: "Cormorant Garamond, Times New Roman, serif", margin: 0 }}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "14px",
+                marginBottom: "12px",
+              }}
+            >
+              <span
+                style={{
+                  width: "28px",
+                  height: "1px",
+                  backgroundColor: "#eab308",
+                }}
+              />
+              <p
+                style={{
+                  fontStyle: "italic",
+                  color: "#eab308",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  fontFamily: "Cormorant Garamond, Times New Roman, serif",
+                  margin: 0,
+                }}
+              >
                 Our Services
               </p>
-              <span style={{ width: "28px", height: "1px", backgroundColor: "#eab308" }} />
+              <span
+                style={{
+                  width: "28px",
+                  height: "1px",
+                  backgroundColor: "#eab308",
+                }}
+              />
             </div>
-            <h2 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "600", color: "#1a1a1a", fontFamily: "Playfair Display, Georgia, serif" }}>
+            <h2
+              style={{
+                fontSize: "clamp(1.8rem, 3vw, 2.6rem)",
+                fontWeight: "600",
+                color: "#1a1a1a",
+                fontFamily: "Playfair Display, Georgia, serif",
+              }}
+            >
               Premium Hotel Services
             </h2>
           </div>
@@ -1366,7 +1419,8 @@ const Home = () => {
                   style={{
                     position: "absolute",
                     inset: 0,
-                    background: "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.1) 100%)",
+                    background:
+                      "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.1) 100%)",
                   }}
                 />
 
@@ -1425,7 +1479,10 @@ const Home = () => {
       </div>
 
       {/* Rooms Section - Using RoomCard Component */}
-      <div id="rooms" style={{ padding: "100px 24px", backgroundColor: "#f8f6f3" }}>
+      <div
+        id="rooms"
+        style={{ padding: "100px 24px", backgroundColor: "#f8f6f3" }}
+      >
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "60px" }}>
             <div
@@ -1504,17 +1561,57 @@ const Home = () => {
       </div>
 
       {/* Social Media Grid */}
-      <div id="social" style={{ padding: "100px 24px", backgroundColor: "#f9f9f7" }}>
+      <div
+        id="social"
+        style={{ padding: "100px 24px", backgroundColor: "#f9f9f7" }}
+      >
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "50px" }}>
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "14px", marginBottom: "12px" }}>
-              <span style={{ width: "28px", height: "1px", backgroundColor: "#eab308" }} />
-              <p style={{ fontStyle: "italic", color: "#eab308", fontSize: "15px", fontWeight: "500", fontFamily: "Cormorant Garamond, Times New Roman, serif", margin: 0 }}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "14px",
+                marginBottom: "12px",
+              }}
+            >
+              <span
+                style={{
+                  width: "28px",
+                  height: "1px",
+                  backgroundColor: "#eab308",
+                }}
+              />
+              <p
+                style={{
+                  fontStyle: "italic",
+                  color: "#eab308",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  fontFamily: "Cormorant Garamond, Times New Roman, serif",
+                  margin: 0,
+                }}
+              >
                 Stay Connected
               </p>
-              <span style={{ width: "28px", height: "1px", backgroundColor: "#eab308" }} />
+              <span
+                style={{
+                  width: "28px",
+                  height: "1px",
+                  backgroundColor: "#eab308",
+                }}
+              />
             </div>
-            <h2 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: "600", color: "#1a1a1a", fontFamily: "Playfair Display, Georgia, serif", marginBottom: "12px" }}>
+            <h2
+              style={{
+                fontSize: "clamp(1.8rem, 3vw, 2.6rem)",
+                fontWeight: "600",
+                color: "#1a1a1a",
+                fontFamily: "Playfair Display, Georgia, serif",
+                marginBottom: "12px",
+              }}
+            >
               Follow Us on Social Platforms
             </h2>
             <a
@@ -1543,76 +1640,88 @@ const Home = () => {
               gap: "4px",
             }}
           >
-            {[social1, social2, social3, social4, social5, social6].map((img, index) => {
-              const imageUrl = img;
-              return (
-                <a
-                  key={index}
-                  href="https://www.instagram.com/julicishotelandsuites"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    position: "relative",
-                    aspectRatio: "1 / 1",
-                    overflow: "hidden",
-                    display: "block",
-                  }}
-                >
-                  <img
-                    src={imageUrl}
-                    alt={`Social post ${index + 1}`}
+            {[social1, social2, social3, social4, social5, social6].map(
+              (img, index) => {
+                const imageUrl = img;
+                return (
+                  <a
+                    key={index}
+                    href="https://www.instagram.com/julicishotelandsuites"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      transition: "transform 0.4s ease",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.transform = "scale(1.1)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.transform = "scale(1)";
-                    }}
-                  />
-                  <div
-                    style={{
-                      position: "absolute",
-                      inset: 0,
-                      backgroundColor: "rgba(234,179,8,0)",
-                      transition: "background-color 0.3s ease",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = "rgba(234,179,8,0.7)";
-                      const img = e.currentTarget.parentElement.querySelector('img');
-                      if (img) img.style.transform = "scale(1.1)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = "rgba(234,179,8,0)";
-                      const img = e.currentTarget.parentElement.querySelector('img');
-                      if (img) img.style.transform = "scale(1)";
+                      position: "relative",
+                      aspectRatio: "1 / 1",
+                      overflow: "hidden",
+                      display: "block",
                     }}
                   >
-                    <Camera size={22} color="#ffffff" style={{ opacity: 0, transition: "opacity 0.3s ease" }} 
+                    <img
+                      src={imageUrl}
+                      alt={`Social post ${index + 1}`}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        transition: "transform 0.4s ease",
+                      }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.opacity = "1";
+                        e.currentTarget.style.transform = "scale(1.1)";
                       }}
                       onMouseLeave={(e) => {
-                        e.currentTarget.style.opacity = "0";
+                        e.currentTarget.style.transform = "scale(1)";
                       }}
                     />
-                  </div>
-                </a>
-              );
-            })}
+                    <div
+                      style={{
+                        position: "absolute",
+                        inset: 0,
+                        backgroundColor: "rgba(234,179,8,0)",
+                        transition: "background-color 0.3s ease",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor =
+                          "rgba(234,179,8,0.7)";
+                        const img =
+                          e.currentTarget.parentElement.querySelector("img");
+                        if (img) img.style.transform = "scale(1.1)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor =
+                          "rgba(234,179,8,0)";
+                        const img =
+                          e.currentTarget.parentElement.querySelector("img");
+                        if (img) img.style.transform = "scale(1)";
+                      }}
+                    >
+                      <Camera
+                        size={22}
+                        color="#ffffff"
+                        style={{ opacity: 0, transition: "opacity 0.3s ease" }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.opacity = "1";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.opacity = "0";
+                        }}
+                      />
+                    </div>
+                  </a>
+                );
+              },
+            )}
           </div>
         </div>
       </div>
 
       {/* Testimonial Section - Carousel Style */}
-      <div id="testimonials" style={{ padding: "100px 24px", backgroundColor: "#ffffff" }}>
+      <div
+        id="testimonials"
+        style={{ padding: "100px 24px", backgroundColor: "#ffffff" }}
+      >
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "60px" }}>
             <div
@@ -1867,11 +1976,14 @@ const Home = () => {
           style={{
             position: "absolute",
             inset: 0,
-            background: "radial-gradient(circle at 50% 0%, rgba(234,179,8,0.08) 0%, transparent 60%)",
+            background:
+              "radial-gradient(circle at 50% 0%, rgba(234,179,8,0.08) 0%, transparent 60%)",
           }}
         />
 
-        <div style={{ position: "relative", maxWidth: "560px", margin: "0 auto" }}>
+        <div
+          style={{ position: "relative", maxWidth: "560px", margin: "0 auto" }}
+        >
           <Mail size={32} color="#eab308" style={{ marginBottom: "20px" }} />
 
           <h2
@@ -1894,7 +2006,8 @@ const Home = () => {
               fontFamily: "Cormorant Garamond, Times New Roman, serif",
             }}
           >
-            Be the first to know about exclusive offers, seasonal promotions, and updates from Julicis Hotel & Suites.
+            Be the first to know about exclusive offers, seasonal promotions,
+            and updates from Golden Bella Hotels and Suites.
           </p>
 
           {subscribed ? (
@@ -1957,8 +2070,12 @@ const Home = () => {
                   transition: "background-color 0.3s ease",
                   whiteSpace: "nowrap",
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#d4a308")}
-                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#eab308")}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.backgroundColor = "#d4a308")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.backgroundColor = "#eab308")
+                }
               >
                 Subscribe
               </button>

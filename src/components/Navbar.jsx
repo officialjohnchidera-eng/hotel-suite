@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
+import logoFull from "../assets/images/logo-full .png";
+import logoMonogram from "../assets/images/logo-monogram.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -147,9 +149,7 @@ const Navbar = () => {
                     textTransform: "uppercase",
                     letterSpacing: "0.1em",
                     borderBottom:
-                      index !== items.length - 1
-                        ? "1px solid #f3f4f6"
-                        : "none",
+                      index !== items.length - 1 ? "1px solid #f3f4f6" : "none",
                     transform: isActive ? "translateY(0)" : "translateY(6px)",
                     opacity: isActive ? 1 : 0,
                     fontFamily: "Cormorant Garamond, Georgia, serif",
@@ -198,6 +198,7 @@ const Navbar = () => {
         transition: "background-color 0.4s ease, box-shadow 0.4s ease",
       }}
     >
+      {/* Desktop View */}
       <div className="hidden md:flex items-center justify-between px-10 max-w-7xl mx-auto relative w-full">
         {/* Left Side Links */}
         <ul className="flex items-center gap-8 w-1/3">
@@ -249,19 +250,18 @@ const Navbar = () => {
         <Link
           to="/"
           style={{
-            color: "#ffffff",
-            fontSize: "16px",
-            fontWeight: "300",
-            textTransform: "uppercase",
-            letterSpacing: "0.2em",
-            textAlign: "center",
-            fontFamily: "Playfair Display, Georgia, serif",
-            textDecoration: "none",
-            transition: "color 0.3s ease",
+            display: "flex",
+            alignItems: "center",
+            transition: "opacity 0.3s ease",
           }}
-          className="hover:text-yellow-500"
+          onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
+          onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
         >
-          Julicis Hotel & Suites
+          <img
+            src={logoFull}
+            alt="Golden Bella Hotels & Suites"
+            style={{ height: "68px", width: "auto", objectFit: "contain" }}
+          />
         </Link>
 
         {/* Right Side Links */}
@@ -344,21 +344,17 @@ const Navbar = () => {
         </ul>
       </div>
 
-      {/* Mobile View */}
-      <div className="md:hidden flex items-center justify-between px-6 w-full">
+      {/* Mobile View - Now using logoFull instead of logoMonogram */}
+      <div className="flex md:hidden items-center justify-between px-6 w-full">
         <Link
           to="/"
-          style={{
-            color: "#ffffff",
-            fontSize: "14px",
-            fontWeight: "300",
-            textTransform: "uppercase",
-            letterSpacing: "0.15em",
-            fontFamily: "Playfair Display, Georgia, serif",
-            textDecoration: "none",
-          }}
+          style={{ display: "flex", alignItems: "center" }}
         >
-          Julicis Hotel
+          <img
+            src={logoFull}
+            alt="Golden Bella Hotels & Suites"
+            style={{ height: "50px", width: "auto", objectFit: "contain" }}
+          />
         </Link>
         <button
           onClick={() => setIsOpen(!isOpen)}

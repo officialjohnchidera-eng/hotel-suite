@@ -55,6 +55,12 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log('Contact form:', { name, email, phone, message })
+    // Reset form
+    setName('')
+    setEmail('')
+    setPhone('')
+    setMessage('')
+    alert('Thank you for your message! We will get back to you soon.')
   }
 
   return (
@@ -191,7 +197,7 @@ const Contact = () => {
                   border: 'none',
                   borderRadius: '4px',
                   cursor: 'pointer',
-                  transition: 'background-color 0.3s ease',
+                  transition: 'all 0.3s ease',
                   fontFamily: 'Cormorant Garamond, Times New Roman, serif',
                 }}
                 onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#eab308'; e.currentTarget.style.color = '#000000' }}
@@ -206,28 +212,59 @@ const Contact = () => {
             <div style={infoCardStyle}>
               <h3 style={infoCardHeadingStyle}>Hotel Info Center</h3>
               <p style={infoCardLineStyle}>Open Hours: Monday – Sunday</p>
-              <p style={infoCardLineStyle}>Telephone: +234 906 953 0033</p>
-              <p style={infoCardLineStyle}>Email: info@julicishotelandsuites.com</p>
+              <p style={infoCardLineStyle}>Telephone: +234 806 170 6684</p>
+              <p style={infoCardLineStyle}>Email: info@goldenbellahotelsandsuites.com</p>
             </div>
 
             <div style={infoCardStyle}>
               <h3 style={infoCardHeadingStyle}>Hotel Location</h3>
-              <p style={infoCardLineStyle}>No 13 Alhaji Agbabiaka Street, Ago Palace Way Okota Lagos Nigeria</p>
-              <p style={infoCardLineStyle}>Telephone: +234 913 383 2888</p>
-              <p style={infoCardLineStyle}>Email: info@julicishotelandsuites.com</p>
+              <p style={infoCardLineStyle}>125, Kirikiri Road, Olodi Apapa Lagos Nigeria</p>
+              <p style={infoCardLineStyle}>Telephone: +234 806 170 6684</p>
+              <p style={infoCardLineStyle}>Email: info@goldenbellahotelsandsuites.com</p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Map Section */}
-      <div style={{ width: '100%', height: '420px' }}>
+      {/* Map Section - FIXED */}
+      <div style={{ width: '100%', height: '450px', backgroundColor: '#e8e4de', position: 'relative' }}>
         <iframe
-          title="Julicis Hotel Location"
-          src="https://maps.google.com/maps?q=No+13+Alhaji+Agbabiaka+Street%2C+Ago+Palace+Way+Okota+Lagos+Nigeria&t=m&z=14&output=embed&iwloc=near"
-          style={{ width: '100%', height: '100%', border: 0 }}
+          title="Golden Bella Hotels & Suites Location"
+          src="https://www.google.com/maps/embed/v1/place?q=125+Kirikiri+Road+Olodi+Apapa+Lagos+Nigeria&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
+          style={{ 
+            width: '100%', 
+            height: '100%', 
+            border: 0,
+            position: 'absolute',
+            top: 0,
+            left: 0
+          }}
           loading="lazy"
+          allowFullScreen
+          referrerPolicy="no-referrer-when-downgrade"
         />
+        {/* Fallback overlay with address */}
+        <div style={{ 
+          position: 'absolute', 
+          bottom: '30px', 
+          left: '50%', 
+          transform: 'translateX(-50%)',
+          backgroundColor: 'rgba(0,0,0,0.75)',
+          color: 'white',
+          padding: '12px 24px',
+          borderRadius: '8px',
+          fontSize: '14px',
+          fontFamily: 'Cormorant Garamond, serif',
+          letterSpacing: '0.5px',
+          backdropFilter: 'blur(4px)',
+          border: '1px solid rgba(255,255,255,0.1)',
+          whiteSpace: 'nowrap',
+          maxWidth: '90%',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis'
+        }}>
+          📍 125 Kirikiri Road, Olodi Apapa, Lagos Nigeria
+        </div>
       </div>
     </div>
   )

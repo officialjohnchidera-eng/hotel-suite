@@ -32,7 +32,7 @@ const AboutSection = ({ heading, paragraph1, paragraph2, mainImage, overlapImage
           >
             <img
               src={mainImage}
-              alt="Julicis Hotel Interior"
+              alt="Golden Bella Hotel Interior"
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
           </div>
@@ -52,7 +52,7 @@ const AboutSection = ({ heading, paragraph1, paragraph2, mainImage, overlapImage
           >
             <img
               src={overlapImage}
-              alt="Julicis Hotel Suite"
+              alt="Golden Bella Hotel Suite"
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
           </div>

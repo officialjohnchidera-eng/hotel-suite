@@ -4,15 +4,15 @@ import bedroomB from '../../assets/images/bedroomB.jpg'
 
 const RoyaleSuite = () => {
   const room = {
-    name: "Julicis Royale Suite",
+    name: "Golden Bella Royale Suite",
     price: "₦120,000.00",
     bed: "1 King Bed",
     guests: "5 Guests",
     size: "85 m²",
     bedType: "1 King Bed",
     image: bedroomB,
-    description: "The Julicis Royale Suite is our most luxurious offering, featuring a spacious living area, dining room, and premium amenities for an unforgettable stay.",
-    longDescription: "Experience the ultimate in luxury with our flagship Julicis Royale Suite. This expansive suite features a master bedroom with a king-sized bed, a separate living room with a dining area, and a spa-inspired bathroom with a Jacuzzi tub. The suite includes a fully equipped kitchenette, complimentary premium beverages, and personalized butler service.",
+    description: "The Golden Bella Royale Suite is our most luxurious offering, featuring a spacious living area, dining room, and premium amenities for an unforgettable stay.",
+    longDescription: "Experience the ultimate in luxury with our flagship Golden Bella Royale Suite. This expansive suite features a master bedroom with a king-sized bed, a separate living room with a dining area, and a spa-inspired bathroom with a Jacuzzi tub. The suite includes a fully equipped kitchenette, complimentary premium beverages, and personalized butler service.",
     amenities: [
       "Air Conditioning",
       "65-inch Smart TV",

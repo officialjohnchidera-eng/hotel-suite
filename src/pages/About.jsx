@@ -61,8 +61,8 @@ const About = () => {
 
       {/* About Section - using different bedroom images and About-specific text */}
       <AboutSection
-        heading="Welcome To Julicis Hotel and Suite"
-        paragraph1="Julicis Hotels & Suites is a premier hospitality brand offering a luxurious blend of comfort, style, and personalized service. Nestled in the heart of Lagos, Nigeria, located at No 13 Alhaji Agbabiaka Street, Ago Palace Way Okota. Our hotel caters to both business and leisure travelers, delivering world-class experiences in a serene and secure environment."
+        heading=" Welcome To Golden Bella Hotels and Suites "
+        paragraph1=" Golden Bella Hotels & Suites is a premier hospitality brand offering a luxurious blend of comfort, style, and personalized service. Nestled in the heart of Lagos, Nigeria, located at No 13 Alhaji Agbabiaka Street, Ago Palace Way Okota. Our hotel caters to both business and leisure travelers, delivering world-class experiences in a serene and secure environment."
         paragraph2="Since our establishment in 2025, we consistently set high standards in accommodation, dining, and guest experience, becoming a trusted destination for tourists, conferences, events, and special occasions, ensuring a restful retreat whether you're here for business or leisure."
         mainImage={bedroomH}
         overlapImage={bedroomI}

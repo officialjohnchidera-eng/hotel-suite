@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
+import Payment from './pages/Payment'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import WhatsAppButton from './components/WhatsAppButton'
@@ -29,6 +30,7 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/booking" element={<Booking />} />
+        <Route path="/payment" element={<Payment />} />
         <Route path="/rooms/standard" element={<StandardRoom />} />
         <Route path="/rooms/classic" element={<ClassicRoom />} />
         <Route path="/rooms/deluxe" element={<DeluxeRoom />} />

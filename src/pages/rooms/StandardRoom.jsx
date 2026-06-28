@@ -1,5 +1,15 @@
-import { Link } from 'react-router-dom'
-import { Users, Bed, Wifi, Tv, Bath, Coffee, Check, Maximize, Snowflake } from 'lucide-react'
+import { Link } from "react-router-dom";
+import {
+  Users,
+  Bed,
+  Wifi,
+  Tv,
+  Bath,
+  Coffee,
+  Check,
+  Maximize,
+  Snowflake,
+} from "lucide-react";
 import bedroomA from "../../assets/images/bedroomA.jpg";
 
 const StandardRoom = () => {
@@ -11,8 +21,10 @@ const StandardRoom = () => {
     size: "25 m²",
     bedType: "1 Double Bed",
     image: bedroomA,
-    description: "Our Standard Room offers a comfortable and cozy space perfect for solo travelers. Enjoy modern amenities in a thoughtfully designed room that provides everything you need for a relaxing stay.",
-    longDescription: "The Standard Room at Julicis Hotel & Suites is designed with your comfort in mind. Featuring a plush bed with premium linens, a spacious work desk, and a private bathroom with complimentary toiletries. The room is equipped with air conditioning, a flat-screen TV, and high-speed WiFi to keep you connected throughout your stay.",
+    description:
+      "Our Standard Room offers a comfortable and cozy space perfect for solo travelers. Enjoy modern amenities in a thoughtfully designed room that provides everything you need for a relaxing stay.",
+    longDescription:
+      "The Standard Room at Golden Bella Hotels and Suites is designed with your comfort in mind. Featuring a plush bed with premium linens, a spacious work desk, and a private bathroom with complimentary toiletries. The room is equipped with air conditioning, a flat-screen TV, and high-speed WiFi to keep you connected throughout your stay.",
     amenities: [
       "Air Conditioning",
       "Flat-Screen TV",
@@ -21,109 +33,112 @@ const StandardRoom = () => {
       "Complimentary Toiletries",
       "Work Desk",
       "Daily Housekeeping",
-      "24/7 Room Service"
+      "24/7 Room Service",
     ],
     checkIn: "2:00 PM",
     checkOut: "12:00 PM",
-  }
+  };
 
   const getAmenityIcon = (amenity) => {
     const icons = {
-      'Air Conditioning': <Snowflake size={20} />,
-      'Flat-Screen TV': <Tv size={20} />,
-      'Free WiFi': <Wifi size={20} />,
-      'Private Bathroom': <Bath size={20} />,
-      'Complimentary Toiletries': <Bath size={20} />,
-      'Work Desk': <Coffee size={20} />,
-      'Daily Housekeeping': <Check size={20} />,
-      '24/7 Room Service': <Coffee size={20} />,
-    }
-    return icons[amenity] || <Check size={20} />
-  }
+      "Air Conditioning": <Snowflake size={20} />,
+      "Flat-Screen TV": <Tv size={20} />,
+      "Free WiFi": <Wifi size={20} />,
+      "Private Bathroom": <Bath size={20} />,
+      "Complimentary Toiletries": <Bath size={20} />,
+      "Work Desk": <Coffee size={20} />,
+      "Daily Housekeeping": <Check size={20} />,
+      "24/7 Room Service": <Coffee size={20} />,
+    };
+    return icons[amenity] || <Check size={20} />;
+  };
 
   return (
-    <div style={{ backgroundColor: '#ffffff' }}>
+    <div style={{ backgroundColor: "#ffffff" }}>
       {/* Hero Section */}
       <div
         style={{
-          position: 'relative',
-          width: '100%',
-          height: '60vh',
-          minHeight: '400px',
+          position: "relative",
+          width: "100%",
+          height: "60vh",
+          minHeight: "400px",
           backgroundImage: `url(${room.image})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          display: 'flex',
-          alignItems: 'center',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          display: "flex",
+          alignItems: "center",
         }}
       >
         <div
           style={{
-            position: 'absolute',
+            position: "absolute",
             inset: 0,
-            background: 'linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%)',
+            background:
+              "linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%)",
           }}
         />
-        
+
         <div
           style={{
-            position: 'relative',
-            maxWidth: '1200px',
-            margin: '0 auto',
-            padding: '0 24px',
+            position: "relative",
+            maxWidth: "1200px",
+            margin: "0 auto",
+            padding: "0 24px",
             zIndex: 2,
-            width: '100%',
+            width: "100%",
           }}
         >
           <Link
             to="/rooms"
             style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '8px',
-              color: 'rgba(255,255,255,0.8)',
-              fontSize: '14px',
-              textDecoration: 'none',
-              fontFamily: 'Cormorant Garamond, Times New Roman, serif',
-              transition: 'color 0.3s ease',
-              marginBottom: '24px',
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "8px",
+              color: "rgba(255,255,255,0.8)",
+              fontSize: "14px",
+              textDecoration: "none",
+              fontFamily: "Cormorant Garamond, Times New Roman, serif",
+              transition: "color 0.3s ease",
+              marginBottom: "24px",
             }}
-            onMouseEnter={e => e.currentTarget.style.color = '#eab308'}
-            onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "#eab308")}
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.color = "rgba(255,255,255,0.8)")
+            }
           >
             ← Back to Rooms
           </Link>
-          
+
           <h1
             style={{
-              color: '#ffffff',
-              fontSize: 'clamp(2.5rem, 5vw, 4rem)',
-              fontWeight: '300',
-              textTransform: 'uppercase',
-              letterSpacing: '0.08em',
-              marginBottom: '12px',
-              fontFamily: 'Playfair Display, Georgia, serif',
+              color: "#ffffff",
+              fontSize: "clamp(2.5rem, 5vw, 4rem)",
+              fontWeight: "300",
+              textTransform: "uppercase",
+              letterSpacing: "0.08em",
+              marginBottom: "12px",
+              fontFamily: "Playfair Display, Georgia, serif",
             }}
           >
             {room.name}
           </h1>
           <div
             style={{
-              display: 'flex',
-              gap: '24px',
-              flexWrap: 'wrap',
-              color: 'rgba(255,255,255,0.8)',
-              fontSize: '16px',
-              fontFamily: 'Cormorant Garamond, Times New Roman, serif',
+              display: "flex",
+              gap: "24px",
+              flexWrap: "wrap",
+              color: "rgba(255,255,255,0.8)",
+              fontSize: "16px",
+              fontFamily: "Cormorant Garamond, Times New Roman, serif",
             }}
           >
-            <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
               <Bed size={18} /> {room.bed}
             </span>
-            <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
               <Users size={18} /> {room.guests}
             </span>
-            <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
               <Maximize size={18} /> {room.size}
             </span>
           </div>
@@ -131,41 +146,41 @@ const StandardRoom = () => {
       </div>
 
       {/* Room Details */}
-      <div style={{ padding: '80px 24px' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '60px' }}>
+      <div style={{ padding: "80px 24px" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "60px" }}>
             {/* Left Column */}
-            <div style={{ flex: '2 1 500px' }}>
-              <div style={{ marginBottom: '40px' }}>
+            <div style={{ flex: "2 1 500px" }}>
+              <div style={{ marginBottom: "40px" }}>
                 <span
                   style={{
-                    color: '#eab308',
-                    fontSize: '18px',
-                    fontWeight: '500',
-                    fontFamily: 'Cormorant Garamond, Times New Roman, serif',
+                    color: "#eab308",
+                    fontSize: "18px",
+                    fontWeight: "500",
+                    fontFamily: "Cormorant Garamond, Times New Roman, serif",
                   }}
                 >
                   {room.price} / night
                 </span>
                 <h2
                   style={{
-                    fontSize: 'clamp(1.8rem, 2.5vw, 2.2rem)',
-                    fontWeight: '600',
-                    color: '#1a1a1a',
-                    marginTop: '8px',
-                    marginBottom: '16px',
-                    fontFamily: 'Playfair Display, Georgia, serif',
+                    fontSize: "clamp(1.8rem, 2.5vw, 2.2rem)",
+                    fontWeight: "600",
+                    color: "#1a1a1a",
+                    marginTop: "8px",
+                    marginBottom: "16px",
+                    fontFamily: "Playfair Display, Georgia, serif",
                   }}
                 >
                   About This Room
                 </h2>
                 <p
                   style={{
-                    color: '#555555',
-                    fontSize: '16px',
+                    color: "#555555",
+                    fontSize: "16px",
                     lineHeight: 1.8,
-                    marginBottom: '16px',
-                    fontFamily: 'Cormorant Garamond, Times New Roman, serif',
+                    marginBottom: "16px",
+                    fontFamily: "Cormorant Garamond, Times New Roman, serif",
                   }}
                 >
                   {room.longDescription}
@@ -173,44 +188,47 @@ const StandardRoom = () => {
               </div>
 
               {/* Amenities */}
-              <div style={{ marginBottom: '40px' }}>
+              <div style={{ marginBottom: "40px" }}>
                 <h3
                   style={{
-                    fontSize: '20px',
-                    fontWeight: '600',
-                    color: '#1a1a1a',
-                    marginBottom: '20px',
-                    fontFamily: 'Playfair Display, Georgia, serif',
+                    fontSize: "20px",
+                    fontWeight: "600",
+                    color: "#1a1a1a",
+                    marginBottom: "20px",
+                    fontFamily: "Playfair Display, Georgia, serif",
                   }}
                 >
                   Room Amenities
                 </h3>
                 <div
                   style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-                    gap: '12px',
+                    display: "grid",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+                    gap: "12px",
                   }}
                 >
                   {room.amenities.map((amenity, index) => (
                     <div
                       key={index}
                       style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '10px',
-                        padding: '10px 14px',
-                        backgroundColor: '#f9f9f7',
-                        borderRadius: '8px',
-                        border: '1px solid rgba(0,0,0,0.04)',
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "10px",
+                        padding: "10px 14px",
+                        backgroundColor: "#f9f9f7",
+                        borderRadius: "8px",
+                        border: "1px solid rgba(0,0,0,0.04)",
                       }}
                     >
-                      <span style={{ color: '#eab308' }}>{getAmenityIcon(amenity)}</span>
+                      <span style={{ color: "#eab308" }}>
+                        {getAmenityIcon(amenity)}
+                      </span>
                       <span
                         style={{
-                          color: '#333333',
-                          fontSize: '14px',
-                          fontFamily: 'Cormorant Garamond, Times New Roman, serif',
+                          color: "#333333",
+                          fontSize: "14px",
+                          fontFamily:
+                            "Cormorant Garamond, Times New Roman, serif",
                         }}
                       >
                         {amenity}
@@ -223,32 +241,32 @@ const StandardRoom = () => {
               {/* Room Details Grid */}
               <div
                 style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
-                  gap: '16px',
-                  padding: '24px',
-                  backgroundColor: '#f8f6f3',
-                  borderRadius: '12px',
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
+                  gap: "16px",
+                  padding: "24px",
+                  backgroundColor: "#f8f6f3",
+                  borderRadius: "12px",
                 }}
               >
                 <div>
                   <p
                     style={{
-                      fontSize: '12px',
-                      color: '#888888',
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.08em',
-                      fontFamily: 'Cormorant Garamond, Times New Roman, serif',
+                      fontSize: "12px",
+                      color: "#888888",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.08em",
+                      fontFamily: "Cormorant Garamond, Times New Roman, serif",
                     }}
                   >
                     Bed Type
                   </p>
                   <p
                     style={{
-                      fontSize: '16px',
-                      color: '#1a1a1a',
-                      fontWeight: '500',
-                      fontFamily: 'Playfair Display, Georgia, serif',
+                      fontSize: "16px",
+                      color: "#1a1a1a",
+                      fontWeight: "500",
+                      fontFamily: "Playfair Display, Georgia, serif",
                     }}
                   >
                     {room.bedType}
@@ -257,21 +275,21 @@ const StandardRoom = () => {
                 <div>
                   <p
                     style={{
-                      fontSize: '12px',
-                      color: '#888888',
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.08em',
-                      fontFamily: 'Cormorant Garamond, Times New Roman, serif',
+                      fontSize: "12px",
+                      color: "#888888",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.08em",
+                      fontFamily: "Cormorant Garamond, Times New Roman, serif",
                     }}
                   >
                     Room Size
                   </p>
                   <p
                     style={{
-                      fontSize: '16px',
-                      color: '#1a1a1a',
-                      fontWeight: '500',
-                      fontFamily: 'Playfair Display, Georgia, serif',
+                      fontSize: "16px",
+                      color: "#1a1a1a",
+                      fontWeight: "500",
+                      fontFamily: "Playfair Display, Georgia, serif",
                     }}
                   >
                     {room.size}
@@ -280,21 +298,21 @@ const StandardRoom = () => {
                 <div>
                   <p
                     style={{
-                      fontSize: '12px',
-                      color: '#888888',
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.08em',
-                      fontFamily: 'Cormorant Garamond, Times New Roman, serif',
+                      fontSize: "12px",
+                      color: "#888888",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.08em",
+                      fontFamily: "Cormorant Garamond, Times New Roman, serif",
                     }}
                   >
                     Check In
                   </p>
                   <p
                     style={{
-                      fontSize: '16px',
-                      color: '#1a1a1a',
-                      fontWeight: '500',
-                      fontFamily: 'Playfair Display, Georgia, serif',
+                      fontSize: "16px",
+                      color: "#1a1a1a",
+                      fontWeight: "500",
+                      fontFamily: "Playfair Display, Georgia, serif",
                     }}
                   >
                     {room.checkIn}
@@ -303,21 +321,21 @@ const StandardRoom = () => {
                 <div>
                   <p
                     style={{
-                      fontSize: '12px',
-                      color: '#888888',
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.08em',
-                      fontFamily: 'Cormorant Garamond, Times New Roman, serif',
+                      fontSize: "12px",
+                      color: "#888888",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.08em",
+                      fontFamily: "Cormorant Garamond, Times New Roman, serif",
                     }}
                   >
                     Check Out
                   </p>
                   <p
                     style={{
-                      fontSize: '16px',
-                      color: '#1a1a1a',
-                      fontWeight: '500',
-                      fontFamily: 'Playfair Display, Georgia, serif',
+                      fontSize: "16px",
+                      color: "#1a1a1a",
+                      fontWeight: "500",
+                      fontFamily: "Playfair Display, Georgia, serif",
                     }}
                   >
                     {room.checkOut}
@@ -327,35 +345,35 @@ const StandardRoom = () => {
             </div>
 
             {/* Right Column - Booking Card */}
-            <div style={{ flex: '1 1 320px' }}>
+            <div style={{ flex: "1 1 320px" }}>
               <div
                 style={{
-                  backgroundColor: '#ffffff',
-                  borderRadius: '12px',
-                  padding: '32px 28px',
-                  border: '1px solid rgba(0,0,0,0.08)',
-                  boxShadow: '0 8px 30px rgba(0,0,0,0.06)',
-                  position: 'sticky',
-                  top: '100px',
+                  backgroundColor: "#ffffff",
+                  borderRadius: "12px",
+                  padding: "32px 28px",
+                  border: "1px solid rgba(0,0,0,0.08)",
+                  boxShadow: "0 8px 30px rgba(0,0,0,0.06)",
+                  position: "sticky",
+                  top: "100px",
                 }}
               >
                 <h3
                   style={{
-                    fontSize: '24px',
-                    fontWeight: '700',
-                    color: '#1a1a1a',
-                    marginBottom: '8px',
-                    fontFamily: 'Playfair Display, Georgia, serif',
+                    fontSize: "24px",
+                    fontWeight: "700",
+                    color: "#1a1a1a",
+                    marginBottom: "8px",
+                    fontFamily: "Playfair Display, Georgia, serif",
                   }}
                 >
                   {room.price}
                 </h3>
                 <p
                   style={{
-                    color: '#888888',
-                    fontSize: '14px',
-                    marginBottom: '24px',
-                    fontFamily: 'Cormorant Garamond, Times New Roman, serif',
+                    color: "#888888",
+                    fontSize: "14px",
+                    marginBottom: "24px",
+                    fontFamily: "Cormorant Garamond, Times New Roman, serif",
                   }}
                 >
                   per night
@@ -363,72 +381,88 @@ const StandardRoom = () => {
 
                 <div
                   style={{
-                    display: 'flex',
-                    gap: '12px',
-                    marginBottom: '20px',
+                    display: "flex",
+                    gap: "12px",
+                    marginBottom: "20px",
                   }}
                 >
                   <div
                     style={{
                       flex: 1,
-                      padding: '12px 14px',
-                      backgroundColor: '#f9f9f7',
-                      borderRadius: '8px',
-                      border: '1px solid rgba(0,0,0,0.06)',
+                      padding: "12px 14px",
+                      backgroundColor: "#f9f9f7",
+                      borderRadius: "8px",
+                      border: "1px solid rgba(0,0,0,0.06)",
                     }}
                   >
                     <p
                       style={{
-                        fontSize: '11px',
-                        color: '#888888',
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.08em',
-                        fontFamily: 'Cormorant Garamond, Times New Roman, serif',
+                        fontSize: "11px",
+                        color: "#888888",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.08em",
+                        fontFamily:
+                          "Cormorant Garamond, Times New Roman, serif",
                       }}
                     >
                       Guests
                     </p>
                     <p
                       style={{
-                        fontSize: '16px',
-                        color: '#1a1a1a',
-                        fontWeight: '500',
-                        fontFamily: 'Playfair Display, Georgia, serif',
+                        fontSize: "16px",
+                        color: "#1a1a1a",
+                        fontWeight: "500",
+                        fontFamily: "Playfair Display, Georgia, serif",
                       }}
                     >
-                      <Users size={16} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '4px' }} />
+                      <Users
+                        size={16}
+                        style={{
+                          display: "inline",
+                          verticalAlign: "middle",
+                          marginRight: "4px",
+                        }}
+                      />
                       {room.guests}
                     </p>
                   </div>
                   <div
                     style={{
                       flex: 1,
-                      padding: '12px 14px',
-                      backgroundColor: '#f9f9f7',
-                      borderRadius: '8px',
-                      border: '1px solid rgba(0,0,0,0.06)',
+                      padding: "12px 14px",
+                      backgroundColor: "#f9f9f7",
+                      borderRadius: "8px",
+                      border: "1px solid rgba(0,0,0,0.06)",
                     }}
                   >
                     <p
                       style={{
-                        fontSize: '11px',
-                        color: '#888888',
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.08em',
-                        fontFamily: 'Cormorant Garamond, Times New Roman, serif',
+                        fontSize: "11px",
+                        color: "#888888",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.08em",
+                        fontFamily:
+                          "Cormorant Garamond, Times New Roman, serif",
                       }}
                     >
                       Bed
                     </p>
                     <p
                       style={{
-                        fontSize: '16px',
-                        color: '#1a1a1a',
-                        fontWeight: '500',
-                        fontFamily: 'Playfair Display, Georgia, serif',
+                        fontSize: "16px",
+                        color: "#1a1a1a",
+                        fontWeight: "500",
+                        fontFamily: "Playfair Display, Georgia, serif",
                       }}
                     >
-                      <Bed size={16} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '4px' }} />
+                      <Bed
+                        size={16}
+                        style={{
+                          display: "inline",
+                          verticalAlign: "middle",
+                          marginRight: "4px",
+                        }}
+                      />
                       {room.bed}
                     </p>
                   </div>
@@ -437,28 +471,29 @@ const StandardRoom = () => {
                 <Link
                   to={`/booking?room=${encodeURIComponent(room.name)}`}
                   style={{
-                    display: 'block',
-                    width: '100%',
-                    textAlign: 'center',
-                    backgroundColor: '#eab308',
-                    color: '#000000',
-                    padding: '16px 0',
-                    borderRadius: '8px',
-                    fontSize: '14px',
-                    fontWeight: '700',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.1em',
-                    textDecoration: 'none',
-                    transition: 'background-color 0.3s ease, transform 0.2s ease',
-                    fontFamily: 'Cormorant Garamond, Times New Roman, serif',
+                    display: "block",
+                    width: "100%",
+                    textAlign: "center",
+                    backgroundColor: "#eab308",
+                    color: "#000000",
+                    padding: "16px 0",
+                    borderRadius: "8px",
+                    fontSize: "14px",
+                    fontWeight: "700",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.1em",
+                    textDecoration: "none",
+                    transition:
+                      "background-color 0.3s ease, transform 0.2s ease",
+                    fontFamily: "Cormorant Garamond, Times New Roman, serif",
                   }}
-                  onMouseEnter={e => {
-                    e.currentTarget.style.backgroundColor = '#d4a308'
-                    e.currentTarget.style.transform = 'scale(1.01)'
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = "#d4a308";
+                    e.currentTarget.style.transform = "scale(1.01)";
                   }}
-                  onMouseLeave={e => {
-                    e.currentTarget.style.backgroundColor = '#eab308'
-                    e.currentTarget.style.transform = 'scale(1)'
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = "#eab308";
+                    e.currentTarget.style.transform = "scale(1)";
                   }}
                 >
                   Book Now
@@ -466,20 +501,20 @@ const StandardRoom = () => {
 
                 <div
                   style={{
-                    marginTop: '16px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '8px',
+                    marginTop: "16px",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "8px",
                   }}
                 >
                   <div
                     style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '8px',
-                      color: '#666666',
-                      fontSize: '13px',
-                      fontFamily: 'Cormorant Garamond, Times New Roman, serif',
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "8px",
+                      color: "#666666",
+                      fontSize: "13px",
+                      fontFamily: "Cormorant Garamond, Times New Roman, serif",
                     }}
                   >
                     <Check size={16} color="#eab308" />
@@ -487,12 +522,12 @@ const StandardRoom = () => {
                   </div>
                   <div
                     style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '8px',
-                      color: '#666666',
-                      fontSize: '13px',
-                      fontFamily: 'Cormorant Garamond, Times New Roman, serif',
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "8px",
+                      color: "#666666",
+                      fontSize: "13px",
+                      fontFamily: "Cormorant Garamond, Times New Roman, serif",
                     }}
                   >
                     <Check size={16} color="#eab308" />
@@ -505,7 +540,7 @@ const StandardRoom = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default StandardRoom
+export default StandardRoom;
