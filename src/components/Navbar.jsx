@@ -260,7 +260,7 @@ const Navbar = () => {
           <img
             src={logoFull}
             alt="Golden Bella Hotels & Suites"
-            style={{ height: "68px", width: "auto", objectFit: "contain" }}
+            style={{ height: "66px", width: "auto", objectFit: "contain" }}
           />
         </Link>
 

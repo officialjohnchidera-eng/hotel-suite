@@ -11,6 +11,9 @@ import {
 } from "lucide-react";
 import { roomsData } from "../data/roomsData";
 
+// Use an online image instead of local file
+const paymentBanner = "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200";
+
 const WHATSAPP_NUMBER = '2348061706684'
 
 const bankDetails = {
@@ -130,20 +133,30 @@ I'm attaching my payment receipt below.`;
           "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
       }}
     >
-      {/* Premium Hero Section */}
+      {/* Premium Hero Section with Image Background */}
       <div
         style={{
           position: "relative",
           width: "100%",
-          minHeight: "380px",
-          background:
-            "linear-gradient(160deg, #0a0a0a 0%, #1a1a1a 40%, #0d0d0d 100%)",
+          minHeight: "450px",
+          backgroundImage: `url(${paymentBanner})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           overflow: "hidden",
         }}
       >
+        {/* Dark Overlay for readability */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.7) 100%)",
+          }}
+        />
+
         {/* Luxury Background Ornaments */}
         <div
           style={{
@@ -153,7 +166,7 @@ I'm attaching my payment receipt below.`;
             width: "600px",
             height: "600px",
             background:
-              "radial-gradient(circle, rgba(234,179,8,0.05) 0%, transparent 70%)",
+              "radial-gradient(circle, rgba(234,179,8,0.08) 0%, transparent 70%)",
             borderRadius: "50%",
           }}
         />
@@ -165,7 +178,7 @@ I'm attaching my payment receipt below.`;
             width: "400px",
             height: "400px",
             background:
-              "radial-gradient(circle, rgba(234,179,8,0.03) 0%, transparent 70%)",
+              "radial-gradient(circle, rgba(234,179,8,0.05) 0%, transparent 70%)",
             borderRadius: "50%",
           }}
         />
@@ -212,7 +225,7 @@ I'm attaching my payment receipt below.`;
               border: "1px solid rgba(234, 179, 8, 0.25)",
               borderRadius: "100px",
               marginBottom: "28px",
-              backgroundColor: "rgba(234, 179, 8, 0.06)",
+              backgroundColor: "rgba(234, 179, 8, 0.1)",
               backdropFilter: "blur(10px)",
             }}
           >
@@ -239,6 +252,7 @@ I'm attaching my payment receipt below.`;
               marginBottom: "12px",
               fontFamily: "'Playfair Display', Georgia, serif",
               lineHeight: 1.1,
+              textShadow: "0 2px 20px rgba(0,0,0,0.3)",
             }}
           >
             Complete Your
@@ -250,13 +264,14 @@ I'm attaching my payment receipt below.`;
 
           <p
             style={{
-              color: "rgba(255,255,255,0.5)",
+              color: "rgba(255,255,255,0.7)",
               fontSize: "clamp(0.95rem, 1.2vw, 1.1rem)",
               fontWeight: "300",
               letterSpacing: "0.05em",
               maxWidth: "480px",
               margin: "0 auto",
               lineHeight: 1.8,
+              textShadow: "0 1px 10px rgba(0,0,0,0.2)",
             }}
           >
             Complete your booking with a secure bank transfer
