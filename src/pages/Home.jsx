@@ -79,7 +79,7 @@ const rooms = [
   {
     image: bedroomB,
     price: "₦120,000.00",
-    name: "Julicis Royale Suite",
+    name: "Golden Bella Royale Suites",
     bed: "1 King Bed",
     guests: "5 Guests",
   },
@@ -911,9 +911,10 @@ const Home = () => {
                 marginBottom: "16px",
               }}
             >
-              Golden Bella Hotels & Suites is a premier hospitality brand offering a
-              luxurious blend of comfort, style, and personalized service.
-              Nestled in the heart of Lagos, Nigeria, located at 125, Kirikiri Road, Olodi Apapa Lagos. Our hotel caters to both
+              Golden Bella Hotels & Suites is a premier hospitality brand
+              offering a luxurious blend of comfort, style, and personalized
+              service. Nestled in the heart of Lagos, Nigeria, located at 125,
+              Kirikiri Road, Olodi Apapa Lagos. Our hotel caters to both
               business and leisure travelers, delivering world-class experiences
               in a serene and secure environment.
             </p>
